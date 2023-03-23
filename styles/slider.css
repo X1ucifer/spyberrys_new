@@ -1,0 +1,27 @@
+/* In a separate CSS file or in a styled-components style block */
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  .slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .slick-slide {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  /* Image Styles */
+  .object-cover {
+    object-fit: cover;
+  }
+  
