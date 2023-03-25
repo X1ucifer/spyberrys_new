@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   const courses = [
     {
       id: 1,
-      title: 'Course 1',
+      title: 'Advanced SEO Strategies 2023 - Level Up Your SEO Knowledge',
       author: 'Author 1',
       rating: '4.5',
       price: '$19.99',
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
     },
     {
       id: 2,
-      title: 'Course 2',
+      title: 'Start Your Own SEO Agency From Home - The Complete Blueprint',
       author: 'Author 2',
       rating: '4.8',
       price: '$29.99',
@@ -46,7 +46,7 @@ const Home: NextPage = () => {
         <Hero />
 
         <h1>Courses</h1>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 m-[30px]">
           {courses.map((course) => (
             <CourseCard key={course.id} {...course} />
           ))}
