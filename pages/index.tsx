@@ -46,7 +46,7 @@ const Home: NextPage = () => {
         <Hero />
 
         <h1>Courses</h1>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 m-[30px]">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 m-[30px]  lg:w-[60%]">
           {courses.map((course) => (
             <CourseCard key={course.id} {...course} />
           ))}
