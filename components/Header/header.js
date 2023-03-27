@@ -1,9 +1,16 @@
 import Link from "next/link";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import React, { useState, useEffect } from "react";
+import { useSelector } from 'react-redux';
+import { Avatar } from '@mui/material';
+import AnimatedAvatar from "../Avatar/avatar"
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedin);
+
 
 
   const [scrollPos, setScrollPos] = useState(0);
@@ -35,7 +42,7 @@ const Header = () => {
 
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${scrollPos > 0 ? "text-[#62647D]": "text-white"}  ${headerClass}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${scrollPos > 0 ? "text-[#62647D]" : "text-white"}  ${headerClass}`}>
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 ">
           <div className="flex-shrink-0">
@@ -44,7 +51,7 @@ const Header = () => {
             </Link>
           </div>
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-center space-x-4">
               <Link href="/" legacyBehavior>
                 <a className=" hover:text-gray-200 font-semibold text-[14px] pr-[15px]">
                   Home
@@ -61,17 +68,31 @@ const Header = () => {
                 </a>
               </Link>
 
-              <Link href="/signup" legacyBehavior>
-                <a className=" hover:text-gray-200 font-semibold text-[14px] pr-[15px]">
-                  Signup
-                </a>
-              </Link>
 
-              <Link href="/login">
-                <button className={` ${loginstyle} ${scrollPos > 0 ? "pl-[12px] pr-[12px] pt-[6px] pb-[6px] text-[13px] border-[1px] border-primary rounded-md font-bold  hover:bg-primary hover:text-[white] hover:border-primary": "pl-[12px] pr-[12px] pt-[6px] pb-[6px] text-[13px] border-[1px] border-white rounded-md font-bold  hover:bg-primary hover:text-[white] hover:border-primary"}`}>
-                  Login
-                </button>
-              </Link>
+
+
+              {isLoggedIn ? (
+                <div className="mb-[4px]">
+                  <AnimatedAvatar />
+
+                </div>
+              ) : (
+                <>
+                  <Link href="/signup" legacyBehavior>
+                    <a className=" hover:text-gray-200 font-semibold text-[14px] pr-[15px]">
+                      Signup
+                    </a>
+                  </Link>
+                  <Link href="/login">
+                    <button className={` ${loginstyle} ${scrollPos > 0 ? "pl-[12px] pr-[12px] pt-[6px] pb-[6px] text-[13px] border-[1px] border-primary rounded-md font-bold  hover:bg-primary hover:text-[white] hover:border-primary" : "pl-[12px] pr-[12px] pt-[6px] pb-[6px] text-[13px] border-[1px] border-white rounded-md font-bold  hover:bg-primary hover:text-[white] hover:border-primary"}`}>
+                      Login
+                    </button>
+                  </Link>
+                </>
+
+              )}
+
+
             </div>
           </div>
           <div className="-mr-2 flex md:hidden">

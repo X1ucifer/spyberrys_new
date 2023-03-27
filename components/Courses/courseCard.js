@@ -20,16 +20,28 @@ const CourseCard = ({ imageSrc, title, author, rating, price, enrolledStudents, 
           />
           <Box
             className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"
-            sx={{ opacity: 0.6 }}
+            sx={{ opacity: 0.8 }}
           />
           <Box className="absolute bottom-0 left-0 z-20 px-4 py-3">
-            <Typography variant="h6" component="h2" className="text-white font-bold truncate w-64">
-              {title}
+           
+           
+            <Typography variant="h5" component="h2" className="text-white font-bold mt-2">
+              {price}
             </Typography>
-            <Typography variant="subtitle1" color="textSecondary" className="text-white mt-1">
-              {author}
-            </Typography>
-            <div className="flex items-center text-white mt-1">
+          </Box>
+        </div>
+        <CardContent className="p-3">
+          <div className="flex items-center mb-2">
+            <Chip label={category} size="small" className="text-xs font-medium mr-2" />
+          </div>
+          <Typography variant="body1" className="text-black font-semibold  truncate">
+            {title}
+          </Typography>
+          <Typography variant="subtitle1" color="textSecondary" className="text-gray-600 mt-1 font-[100] text-[12px]">
+            {author}
+          </Typography>
+
+          <div className="flex items-center text-white mt-1">
               <Star fontSize="small" htmlColor={red[500]} />
               <Typography variant="body2" color="textSecondary" className="ml-1">
                 {rating}
@@ -41,21 +53,6 @@ const CourseCard = ({ imageSrc, title, author, rating, price, enrolledStudents, 
                 {enrolledStudents} students
               </Typography>
             </div>
-            <Typography variant="h5" component="h2" className="text-white font-bold mt-2">
-              {price}
-            </Typography>
-          </Box>
-        </div>
-        <CardContent className="p-3">
-          <div className="flex items-center mb-2">
-            <Chip label={category} size="small" className="text-xs font-medium mr-2" />
-          </div>
-          <Typography variant="body1" className="text-gray-700">
-            {title}
-          </Typography>
-          <Typography variant="subtitle1" color="textSecondary" className="text-gray-600 mt-1">
-            {author}
-          </Typography>
         </CardContent>
       </CardActionArea>
     </Card>

@@ -5,13 +5,19 @@ import { Box, Container, Typography } from '@mui/material';
 import Link from "next/link";
 import Skeleton from '@mui/material/Skeleton';
 import { useDispatch } from 'react-redux';
-import { login } from '../../features/authSlice';
+import { login, fetchUser } from '../../features/authSlice';
+import { toast } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
+import { useRouter } from 'next/router'
+
 
 
 
 function LoginComponent() {
 
     const dispatch = useDispatch();
+
+    const router = useRouter();
 
     const [loading, setLoading] = useState(true);
     const [email, setEmail] = useState('');
@@ -24,10 +30,26 @@ function LoginComponent() {
         return () => clearTimeout(timer);
     }, [])
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(email,password)
-        dispatch(login({ email, password }));
+        console.log(email, password)
+
+        try {
+            const response = await dispatch(login({ email, password }));
+            await dispatch(fetchUser());
+            if (response.payload.status !== 'Failed') {
+                router.push('/');
+            }
+
+            console.log("res", response.payload.status)
+
+        } catch (err) {
+
+            console.log(err)
+
+        }
+
+
     };
 
     return (
@@ -36,6 +58,7 @@ function LoginComponent() {
 
 
 
+            <Toaster />
 
 
 
