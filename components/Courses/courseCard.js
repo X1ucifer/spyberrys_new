@@ -1,13 +1,13 @@
 import { Card, CardActionArea, CardContent, Typography, Box, Chip } from '@mui/material';
 import { Star } from '@mui/icons-material';
-import { red, grey } from '@mui/material/colors';
+import { red, grey, yellow } from '@mui/material/colors';
 
 const CourseCard = ({ imageSrc, title, author, rating, price, enrolledStudents, category }) => {
   const fallbackImgSrc = '/fallback.jpg';
 
   return (
-    <Card className="rounded-md overflow-hidden shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 ease-in-out">
-      <CardActionArea>
+    <Card className="rounded-md overflow-hidden  hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 ease-in-out" style={{boxShadow:"none",}}>
+      <CardActionArea >
         <div className="relative h-48">
           <img
             src={imageSrc}
@@ -20,19 +20,17 @@ const CourseCard = ({ imageSrc, title, author, rating, price, enrolledStudents, 
           />
           <Box
             className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"
-            sx={{ opacity: 0.8 }}
+            sx={{ opacity: 0.3 }}
           />
           <Box className="absolute bottom-0 left-0 z-20 px-4 py-3">
-           
-           
-            <Typography variant="h5" component="h2" className="text-white font-bold mt-2">
-              {price}
-            </Typography>
+
+
+
           </Box>
         </div>
         <CardContent className="p-3">
           <div className="flex items-center mb-2">
-            <Chip label={category} size="small" className="text-xs font-medium mr-2" />
+            <Chip label={category} size="small" className="text-xs font-medium mr-2 bg-primary text-white" />
           </div>
           <Typography variant="body1" className="text-black font-semibold  truncate">
             {title}
@@ -42,17 +40,21 @@ const CourseCard = ({ imageSrc, title, author, rating, price, enrolledStudents, 
           </Typography>
 
           <div className="flex items-center text-white mt-1">
-              <Star fontSize="small" htmlColor={red[500]} />
-              <Typography variant="body2" color="textSecondary" className="ml-1">
-                {rating}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" className="mx-1">
-                •
-              </Typography>
-              <Typography variant="body2" color="textSecondary" className="mr-2">
-                {enrolledStudents} students
-              </Typography>
-            </div>
+            <Star fontSize="small" htmlColor={yellow[900]} />
+            <Typography variant="body2" color="textSecondary" className="ml-1">
+              {rating}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" className="mx-1">
+              •
+            </Typography>
+            <Typography variant="body2" color="textSecondary" className="mr-2">
+              {enrolledStudents} students
+            </Typography>
+          </div>
+
+          <Typography variant="h6" component="h2" className="text-black font-bold mt-2">
+            {price}
+          </Typography>
         </CardContent>
       </CardActionArea>
     </Card>

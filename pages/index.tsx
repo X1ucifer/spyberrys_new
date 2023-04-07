@@ -33,6 +33,66 @@ const Home: NextPage = () => {
       category: 'SEO',
       imageSrc: '/images/course2.jpg',
     },
+    {
+      id: 1,
+      title: 'Advanced SEO Strategies 2023 - Level Up Your SEO Knowledge',
+      author: 'Author 1',
+      rating: '4.5',
+      price: '$19.99',
+      enrolledStudents: '78',
+      category: 'SEO',
+      imageSrc: '/images/course1.jpg',
+    },
+    {
+      id: 2,
+      title: 'Start Your Own SEO Agency From Home - The Complete Blueprint',
+      author: 'Author 2',
+      rating: '4.8',
+      price: '$29.99',
+      enrolledStudents: '78',
+      category: 'SEO',
+      imageSrc: '/images/course2.jpg',
+    },
+    {
+      id: 2,
+      title: 'Start Your Own SEO Agency From Home - The Complete Blueprint',
+      author: 'Author 2',
+      rating: '4.8',
+      price: '$29.99',
+      enrolledStudents: '78',
+      category: 'SEO',
+      imageSrc: '/images/course2.jpg',
+    },
+    {
+      id: 1,
+      title: 'Advanced SEO Strategies 2023 - Level Up Your SEO Knowledge',
+      author: 'Author 1',
+      rating: '4.5',
+      price: '$19.99',
+      enrolledStudents: '78',
+      category: 'SEO',
+      imageSrc: '/images/course1.jpg',
+    },
+    {
+      id: 2,
+      title: 'Start Your Own SEO Agency From Home - The Complete Blueprint',
+      author: 'Author 2',
+      rating: '4.8',
+      price: '$29.99',
+      enrolledStudents: '78',
+      category: 'SEO',
+      imageSrc: '/images/course2.jpg',
+    },
+    {
+      id: 2,
+      title: 'Start Your Own SEO Agency From Home - The Complete Blueprint',
+      author: 'Author 2',
+      rating: '4.8',
+      price: '$29.99',
+      enrolledStudents: '78',
+      category: 'SEO',
+      imageSrc: '/images/course2.jpg',
+    },
   ];
 
   const { theme } = useTheme();
@@ -49,10 +109,10 @@ const Home: NextPage = () => {
 
         <Hero />
 
-        <h1>Courses</h1>
+        <h1 className='text-center mt-[50px] font-bold text-[40px]'>Top Courses</h1>
         <div className="">
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 m-[70px]  lg:w-[60%]">
+       
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 m-[70px] ">
             {courses.map((course) => (
               <CourseCard key={course.id} {...course} />
             ))}

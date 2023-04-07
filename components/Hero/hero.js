@@ -77,33 +77,33 @@ function Hero() {
 
 
 
-      <Box
-        sx={{
-          backgroundImage: `url('https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049970/bg-hero-5-1792-x1.png')`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center center',
-          backgroundSize: 'cover',
-          minHeight: '680px',
-          display: 'flex',
-          objectPosition: 'center',
-          objectFit: 'cover',
+    <Box
+      sx={{
+        backgroundImage: `url('https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/2413b8415dda9dbd7756d02cb87cd4b1-1599595203043/bg-hero-2-900-x1.png')`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center center',
+        backgroundSize: 'cover',
+        minHeight: '680px',
+        display: 'flex',
+        objectPosition: 'center',
+        objectFit: 'cover',
 
-          alignItems: 'center',
-        }}
+        alignItems: 'center',
+      }}
 
 
-      >
-        <Container maxWidth="md">
-          <Typography variant="h2" component="h1" gutterBottom sx={{ textAlign: 'center', mb: '4' }} className="text-white">
-            Welcome to My Website
-          </Typography>
-          <Typography variant="subtitle1" component="p" sx={{ textAlign: 'center' }} className="text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rutrum massa vitae risus bibendum
-            fermentum.
-          </Typography>
-        </Container>
-      </Box>
-  )
+    >
+      <Container>
+        <Typography variant="h2" component="h1" gutterBottom sx={{ textAlign: 'left', mb: '4' }} className="font-bold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-pink-400 to-white max-w-[600px]">
+          Upgrade your knowledge with our online courses.
+        </Typography>
+        <Typography variant="subtitle1" component="p" sx={{ textAlign: 'left' }} className="text-white  max-w-[600px]">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rutrum massa vitae risus bibendum
+          fermentum.
+        </Typography>
+      </Container>
+    </Box>
+  )  
 }
 
 export default Hero

@@ -18,6 +18,7 @@ function SignupComponent() {
 
 
 
+    const router = useRouter();
 
 
     const [activeTab, setActiveTab] = useState(0);
@@ -177,6 +178,8 @@ function SignupComponent() {
 
             toast.dismiss(loadingToastId);
             toast.success(data.Message);
+
+            router.push('/login')
 
 
         } catch (err) {
