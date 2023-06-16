@@ -7,7 +7,7 @@ const AnimatedAvatar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
-
+ 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -18,6 +18,11 @@ const AnimatedAvatar = () => {
 
   const handleLogout = () => {
     // dispatch(logout());
+    handleMenuClose();
+  };
+
+  const handleProfile = () => {
+    // profile_user
     handleMenuClose();
   };
 
@@ -36,6 +41,9 @@ const AnimatedAvatar = () => {
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
         transformOrigin={{ vertical: "top", horizontal: "right" }}
       >
+
+        
+        <MenuItem onClick={handleProfile}>Profile</MenuItem>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
       </Menu>
     </>
