@@ -39,7 +39,7 @@ const Header = () => {
 
   useEffect(() => {
     if (scrollPos > 0) {
-      setHeaderClass('bg-white shadow-md');
+      setHeaderClass('bg-black shadow-md');
       setLoginstyle(' text-primary');
     } else {
       setHeaderClass('');
@@ -49,31 +49,31 @@ const Header = () => {
 
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${scrollPos > 0 || !isHome ? "text-[#62647D] bg-white shadow-md " : "text-white"}  ${headerClass} `}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${scrollPos > 0 || !isHome ? "text-[#62647D] bg-black shadow-md " : "text-white"}  ${headerClass} `}>
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 ">
           <div className="flex-shrink-0">
             <Link href="/" legacyBehavior>
-              <a className="font-bold text-2xl">Spyberrys</a>
+              <a className="text-white font-bold text-2xl">Spyberrys</a>
             </Link>
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
               <Link href="/" legacyBehavior>
-                <a className=" hover:text-gray-200 font-semibold text-[14px] pr-[15px]">
+                <a className="text-white hover:text-gray-200 font-semibold text-[14px] pr-[15px]">
                   Home
                 </a>
               </Link>
               <Link href="/about" legacyBehavior>
-                <a className=" hover:text-gray-200 font-semibold text-[14px] pr-[15px]">
+                <a className="text-white hover:text-gray-200 font-semibold text-[14px] pr-[15px]">
                   All Courses
                 </a>
               </Link>
-
+  
               {user && user.role === "Instructor" ?
                 <>
                   <Link href="/course/course-create" legacyBehavior>
-                    <a className=" hover:text-gray-200  pr-[15px] font-semibold text-[14px]">
+                    <a className="text-white hover:text-gray-200  pr-[15px] font-semibold text-[14px]">
                       Create a course
                     </a>
                   </Link>
@@ -81,7 +81,7 @@ const Header = () => {
                 :
                 <>
                   <Link href="/teach-on-spyberrys" legacyBehavior>
-                    <a className=" hover:text-gray-200  pr-[15px] font-semibold text-[14px]">
+                    <a className="text-white hover:text-gray-200  pr-[15px] font-semibold text-[14px]">
                       Become an Instructor
                     </a>
                   </Link>
@@ -100,7 +100,7 @@ const Header = () => {
               ) : (
                 <>
                   <Link href="/signup" legacyBehavior>
-                    <a className=" hover:text-gray-200 font-semibold text-[14px] pr-[15px]">
+                    <a className="text-white hover:text-gray-200 font-semibold text-[14px] pr-[15px]">
                       Signup
                     </a>
                   </Link>
