@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 const Profile = () => {
   const user = useSelector((state) => state.auth.user);
 
+
   useEffect(() => {
     if (!user) {
       // Redirect to login page if user is not logged in
@@ -26,9 +27,9 @@ const Profile = () => {
           {/*student profile contents can be added here */}
         </div>
       );
-    } else if (role === 'educator') {
+    } else if (role === 'Instructor') {
       return (
-        <div>
+        <div className='mt-[100px]'>
           <h1>Educator Profile</h1>
           {/*educator profile content can be placed here*/}
         </div>
