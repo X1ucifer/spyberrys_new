@@ -79,7 +79,7 @@ function Hero() {
 
     <Box
       sx={{
-        backgroundImage: `url('https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/2413b8415dda9dbd7756d02cb87cd4b1-1599595203043/bg-hero-2-900-x1.png')`,
+        backgroundImage: `url('https://res.cloudinary.com/ddap9cqvo/image/upload/v1669282037/cld-sample.jpg')`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center',
         backgroundSize: 'cover',
@@ -94,7 +94,7 @@ function Hero() {
 
     >
       <Container>
-        <Typography variant="h2" component="h1" gutterBottom sx={{ textAlign: 'left', mb: '4' }} className="font-bold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-pink-400 to-white max-w-[600px]">
+        <Typography variant="h2" component="h1" gutterBottom sx={{ textAlign: 'left', mb: '4' }} className="font-bold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-blue-400 to-white max-w-[600px]">
           Upgrade your knowledge with our online courses.
         </Typography>
         <Typography variant="subtitle1" component="p" sx={{ textAlign: 'left' }} className="text-white  max-w-[600px]">
