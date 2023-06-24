@@ -22,6 +22,8 @@ const Profile = () => {
 
     if (role === "student") {
       return (
+
+        
         <div className="mt-[100px]">
 
           {/* student profile content added here */}
