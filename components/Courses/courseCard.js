@@ -8,7 +8,7 @@ const CourseCard = ({ imageSrc, title, author, rating, price, enrolledStudents, 
   return (
     <Card className="rounded-md overflow-hidden  hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 ease-in-out" style={{boxShadow:"none",}}>
       <CardActionArea >
-        <div className="relative h-48">
+        <div className="relative h-[155px]">
           <img
             src={imageSrc}
             alt={title}

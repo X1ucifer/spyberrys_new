@@ -21,9 +21,62 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import DevicesIcon from '@mui/icons-material/Devices';
 import Stack from '@mui/material/Stack';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import ArticleIcon from '@mui/icons-material/Article';
+import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
+import { styled } from '@mui/material/styles';
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import MuiAccordion from '@mui/material/Accordion';
+import MuiAccordionSummary from '@mui/material/AccordionSummary';
+import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+const Accordion = styled((props) => (
+  <MuiAccordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  '&:not(:last-child)': {
+    borderBottom: 0,
+  },
+  '&:before': {
+    display: 'none',
+  },
+}));
+
+const AccordionSummary = styled((props) => (
+  <MuiAccordionSummary
+    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
+    {...props}
+  />
+))(({ theme }) => ({
+  backgroundColor:
+    theme.palette.mode === 'dark'
+      ? 'rgba(255, 255, 255, .05)'
+      : 'rgba(0, 0, 0, .03)',
+  flexDirection: 'row-reverse',
+  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+    transform: 'rotate(90deg)',
+  },
+  '& .MuiAccordionSummary-content': {
+    marginLeft: theme.spacing(1),
+  },
+}));
+
+const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+  padding: theme.spacing(2),
+  borderTop: '1px solid rgba(0, 0, 0, .125)',
+}));
 
 
 const CoursePreview = () => {
+
+  const [expanded, setExpanded] = React.useState('panel1');
+
+  const handleAccordion = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
+
+
   const router = useRouter()
   const { id } = router.query
   const [course, setCourse] = useState(null)
@@ -108,8 +161,18 @@ const CoursePreview = () => {
               {/* herotext */}
 
               <h1 class="max-w-lg text-4xl font-semibold leading-normal text-gray-900 dark:text-white text-start">Machine Learning A-Z™: AI, Python & R + ChatGPT Bonus [2023]</h1>
-              <p class="mt-5  text-lg sm:mb-8 max-w-lg dark:text-white text-start">Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.</p>
-              <p class="mt-1 mb-8 text-lg sm:mb-12 max-w-lg dark:text-white text-start">Created by ........................</p>
+              <p class="mt-5  text-lg sm:mb-4 max-w-lg dark:text-white text-start">Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.</p>
+              <div class="flex items-center mb-3">
+
+                <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Third star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fourth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                <svg aria-hidden="true" class="w-5 h-5 text-black dark:text-black" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                <p class="ml-2 text-sm font-medium text-gray-900 dark:text-black">4.95 out of 5</p>
+
+              </div>
+              <p class="mt-3 mb-8 text-lg sm:mb-12 max-w-lg dark:text-white text-start">Created by ........................</p>
             </div>
           </div>
         </section>
@@ -124,137 +187,18 @@ const CoursePreview = () => {
 
           <div class="basis-1/2">
 
-
-
-            {/*  */}
-
             <Box sx={{ width: '100%', typography: 'body1' }}>
               <TabContext value={value} >
                 <Box sx={{ borderBottom: 1, borderColor: 'divider', }}>
                   <TabList onChange={handleChange} aria-label="lab API tabs example" centered="true" >
+                    <Tab label="What you'll learn" value="1" />
+                    <Tab label="Ratings" value="2" />
 
-                    <Tab label="Ratings" value="1" />
-                    <Tab label="What you'll learn" value="2" />
 
                   </TabList>
                 </Box>
 
-
                 <TabPanel value="1">
-
-
-                  <div class="max-w-[50rem] mt-10 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl ">
-
-                    <div class="flex items-center mb-3">
-
-                      <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                      <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                      <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Third star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                      <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fourth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                      <svg aria-hidden="true" class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                      <p class="ml-2 text-sm font-medium text-gray-900 dark:text-black">4.95 out of 5</p>
-
-                    </div>
-
-
-
-                    <Stack direction="row" alignItems="center" gap={1} marginBottom={1} justifyContent={"end"}>
-                      <AccessTimeIcon fontSize='small' color='action' />
-                      <Typography variant="caption"> a month Ago</Typography>
-                    </Stack>
-
-
-
-
-
-
-
-                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">1,745 global ratings</p>
-                    <div class="flex items-center mt-4">
-                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">5 star</span>
-                      <div class="w-2/4 h-2 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-                        <div class="h-2 bg-yellow-400 rounded" style={{ width: "70%" }}></div>
-                      </div>
-                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">70%</span>
-                    </div>
-                    <div class="flex items-center mt-4">
-                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">4 star</span>
-                      <div class="w-2/4 h-2 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-                        <div class="h-2 bg-yellow-400 rounded" style={{ width: "17%" }}></div>
-                      </div>
-                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">17%</span>
-                    </div>
-                    <div class="flex items-center mt-4">
-                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">3 star</span>
-                      <div class="w-2/4 h-2 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-                        <div class="h-2 bg-yellow-400 rounded" style={{ width: "8%" }}></div>
-                      </div>
-                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">8%</span>
-                    </div>
-                    <div class="flex items-center mt-4">
-                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">2 star</span>
-                      <div class="w-2/4 h-2 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-                        <div class="h-2 bg-yellow-400 rounded" style={{ width: "4%" }}></div>
-                      </div>
-                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">4%</span>
-                    </div>
-                    <div class="flex items-center mt-4">
-                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">1 star</span>
-                      <div class="w-2/4 h-2 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-                        <div class="h-2 bg-yellow-400 rounded" style={{ width: "1%" }}></div>
-                      </div>
-                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">1%</span>
-                    </div>
-
-
-
-
-
-
-
-                    <figure class="max-w-screen-md mt-10 ">
-                      <figcaption class="flex items-center mt-6 space-x-3 mb-2">
-                        <img class="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="profile picture" />
-                        <div class="flex items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
-                          <cite class="pr-3 font-medium text-gray-900 dark:text-black">Bonnie Green</cite>
-                          <cite class="pl-3 text-sm text-gray-500 dark:text-gray-400">CTO at Flowbite</cite>
-                        </div>
-                      </figcaption>
-                      <div class="flex items-center ">
-                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Third star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fourth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg aria-hidden="true" class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-
-                      </div>
-                      <blockquote>
-                        <p class="text-1xl text-gray-900 dark:text-black mt-2">"Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect choice for your next SaaS application."</p>
-                      </blockquote>
-
-                    </figure>
-
-                    <hr class="h-px my-8 bg-gray-100 border-0 dark:bg-gray-300" />
-
-                    <div class="text-end">
-                      <a href="/" class="text-blue-600 visited:text-blue-600 ...">
-                        See More
-                      </a>
-                    </div>
-
-
-
-                  </div>
-
-
-                </TabPanel>
-
-
-
-                {/* tab2 */}
-
-
-                <TabPanel value="2">
 
                   <div class="max-w-[50rem] mt-10 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl ">
 
@@ -367,7 +311,124 @@ const CoursePreview = () => {
 
 
                 </TabPanel>
-                {/* <TabPanel value="3">Item Three</TabPanel> */}
+
+
+
+
+
+
+                {/* tab2 */}
+
+                <TabPanel value="2">
+
+
+                  <div class="max-w-[50rem] mt-10 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl ">
+
+                    <div class="flex items-center mb-3">
+
+                      <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Third star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fourth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg aria-hidden="true" class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <p class="ml-2 text-sm font-medium text-gray-900 dark:text-black">4.95 out of 5</p>
+
+                    </div>
+
+
+
+                    <Stack direction="row" alignItems="center" gap={1} marginBottom={1} justifyContent={"end"}>
+                      <AccessTimeIcon fontSize='small' color='action' />
+                      <Typography variant="caption"> a month Ago</Typography>
+                    </Stack>
+
+
+
+
+
+
+
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">1,745 global ratings</p>
+                    <div class="flex items-center mt-4">
+                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">5 star</span>
+                      <div class="w-2/4 h-2 mx-4 bg-gray-200 rounded dark:bg-gray-700">
+                        <div class="h-2 bg-yellow-400 rounded" style={{ width: "70%" }}></div>
+                      </div>
+                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">70%</span>
+                    </div>
+                    <div class="flex items-center mt-4">
+                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">4 star</span>
+                      <div class="w-2/4 h-2 mx-4 bg-gray-200 rounded dark:bg-gray-700">
+                        <div class="h-2 bg-yellow-400 rounded" style={{ width: "17%" }}></div>
+                      </div>
+                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">17%</span>
+                    </div>
+                    <div class="flex items-center mt-4">
+                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">3 star</span>
+                      <div class="w-2/4 h-2 mx-4 bg-gray-200 rounded dark:bg-gray-700">
+                        <div class="h-2 bg-yellow-400 rounded" style={{ width: "8%" }}></div>
+                      </div>
+                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">8%</span>
+                    </div>
+                    <div class="flex items-center mt-4">
+                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">2 star</span>
+                      <div class="w-2/4 h-2 mx-4 bg-gray-200 rounded dark:bg-gray-700">
+                        <div class="h-2 bg-yellow-400 rounded" style={{ width: "4%" }}></div>
+                      </div>
+                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">4%</span>
+                    </div>
+                    <div class="flex items-center mt-4">
+                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">1 star</span>
+                      <div class="w-2/4 h-2 mx-4 bg-gray-200 rounded dark:bg-gray-700">
+                        <div class="h-2 bg-yellow-400 rounded" style={{ width: "1%" }}></div>
+                      </div>
+                      <span class="text-sm font-medium text-blue-600 dark:text-blue-500">1%</span>
+                    </div>
+
+
+
+
+
+
+
+                    <figure class="max-w-screen-md mt-10 ">
+                      <figcaption class="flex items-center mt-6 space-x-3 mb-2">
+                        <img class="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="profile picture" />
+                        <div class="flex items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
+                          <cite class="pr-3 font-medium text-gray-900 dark:text-black">Bonnie Green</cite>
+                          <cite class="pl-3 text-sm text-gray-500 dark:text-gray-400">CTO at Flowbite</cite>
+                        </div>
+                      </figcaption>
+                      <div class="flex items-center ">
+                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Third star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fourth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg aria-hidden="true" class="w-5 h-5 text-gray-300 dark:text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+
+                      </div>
+                      <blockquote>
+                        <p class="text-1xl text-gray-900 dark:text-black mt-2">"Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect choice for your next SaaS application."</p>
+                      </blockquote>
+
+                    </figure>
+
+                    <hr class="h-px my-8 bg-gray-100 border-0 dark:bg-gray-300" />
+
+                    <div class="text-end">
+                      <a href="/" class="text-blue-600 visited:text-blue-600 ...">
+                        See More
+                      </a>
+                    </div>
+
+
+
+                  </div>
+
+
+                </TabPanel>
+
+
               </TabContext>
             </Box>
           </div>
@@ -428,23 +489,42 @@ const CoursePreview = () => {
                 </Stack>
 
                 <Stack direction="row" alignItems="center" gap={1} marginBottom={1}>
-                  < DevicesIcon fontSize='small' color='info' />
-                  <Typography variant="body1"> Access on all devices</Typography>
+                  < ArticleIcon fontSize='small' color='info' />
+                  <Typography variant="body1">39 articles</Typography>
                 </Stack>
 
                 <Stack direction="row" alignItems="center" gap={1} marginBottom={1}>
-                  < DevicesIcon fontSize='small' color='info' />
-                  <Typography variant="body1"> Access on all devices</Typography>
+                  <OndemandVideoIcon fontSize='small' color='info' />
+                  <Typography variant="body1">42 hours on-demand video</Typography>
                 </Stack>
 
                 <Stack direction="row" alignItems="center" gap={1} marginBottom={2}>
-                  < DevicesIcon fontSize='small' color='info' />
-                  <Typography variant="body1"> Access on all devices</Typography>
+                  < EmojiEventsIcon fontSize='small' color='info' />
+                  <Typography variant="body1"> Certificate of completion</Typography>
                 </Stack>
 
 
               </div>
               <hr class="h-px my-8 bg-gray-100 border-0 dark:bg-gray-400" />
+
+              {/* <div>
+                <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
+                  Share this course
+                </Typography>
+
+                <div class="flex mt-4 space-x-6 sm:justify-around md:mt-0">
+                  <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                 Gift this Course
+                  </a>
+                  <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                    Apply coupon
+                  </a>
+                 
+                </div>
+
+
+              </div>
+              <hr class="h-px my-8 bg-gray-100 border-0 dark:bg-gray-400" /> */}
 
 
               <div>
@@ -484,6 +564,139 @@ const CoursePreview = () => {
           </div>
 
 
+        </div>
+
+
+
+
+        <div className="flex justify-around mt-[-15%] " >
+
+
+          <div class="basis-5/12">
+            <div class="max-w-[50rem] mt-10 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl overflow-auto">
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography>Accordion 1</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2a-content"
+                  id="panel2a-header"
+                >
+                  <Typography>Accordion 2</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              <Accordion >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel3a-content"
+                  id="panel3a-header"
+                >
+                  <Typography>Disabled Accordion</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                  </Typography>
+                </AccordionDetails>
+
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography>Accordion 1</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2a-content"
+                  id="panel2a-header"
+                >
+                  <Typography>Accordion 2</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              <Accordion >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel3a-content"
+                  id="panel3a-header"
+                >
+                  <Typography>Disabled Accordion</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+
+            </div>
+          </div>
+
+          <div class="basis-4/12">
+            <div class="max-w-[50rem] mt-10 p-6 bg-white border border-gray-800 rounded-lg shadow bg-zinc-100 ">
+            <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
+            Requirements
+                </Typography>
+                <Typography>
+                Just some high school mathematics level.
+                  </Typography>
+
+                  <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
+            Description
+                </Typography>
+                <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                  </Typography>
+
+                  <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
+                  Who this course is for:
+                </Typography>
+                <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                  </Typography>
+                  
+
+            </div>
+
+
+          </div>
         </div>
 
 

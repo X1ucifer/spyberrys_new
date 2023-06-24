@@ -64,7 +64,7 @@ const Header = () => {
                   Home
                 </a>
               </Link>
-              <Link href="/about" legacyBehavior>
+              <Link href="/all-courses" legacyBehavior>
                 <a className="text-white hover:text-gray-200 font-semibold text-[14px] pr-[15px]">
                   All Courses
                 </a>
