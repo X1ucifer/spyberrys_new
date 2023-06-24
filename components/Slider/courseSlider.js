@@ -25,8 +25,8 @@ const CourseSlider = ({ courses, sliderId }) => {
     }, [swiper]);
 
 
-    const prevButtonClassName = `swiper-button-prev swiper-button swiper-button-prev-${sliderId}`;
-    const nextButtonClassName = `swiper-button-next swiper-button swiper-button-next-${sliderId}`;
+    const prevButtonClassName = `container swiper-button-prev swiper-button swiper-button-prev-${sliderId}`;
+    const nextButtonClassName = `container swiper-button-next swiper-button swiper-button-next-${sliderId}`;
 
     return (
         <>
@@ -77,12 +77,12 @@ const CourseSlider = ({ courses, sliderId }) => {
         .swiper-button-prev,
         .swiper-button-next {
           position: absolute;
-          top:50%;
+          top:35%;
           transform: translateY(-50%);
-          width: 40px;
-          height: 40px;
+          width: 50px;
+          height: 50px;
           border-radius: 50%;
-          background-color: rgba(0, 0, 0, 0.5);
+          background-color: black;
           color: #fff;
           display: flex;
           font-size: 6px;
@@ -95,21 +95,22 @@ const CourseSlider = ({ courses, sliderId }) => {
         .swiper-button-next:after, .swiper-button-prev:after {
        
           font-size: 18px;
+          font-weight: bold;
       }
 
         .swiper-button-prev {
           left: 0;
-          margin-left: -50px;
+          margin-left: -20px;
         }
 
         .swiper-button-next {
           right: 0;
-          margin-right: -50px;
+          margin-right: -20px;
         }
 
         .swiper-button-prev:hover,
         .swiper-button-next:hover {
-          background-color: rgba(0, 0, 0, 0.7);
+          background-color: rgba(0, 0, 0, 0.9);
         }
 
         @media screen and (max-width: 767px) {
