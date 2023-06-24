@@ -43,13 +43,13 @@ const Home = () => {
     },
     {
       id: 1,
-      title: 'Advanced SEO Strategies 2023 - Level Up Your SEO Knowledge',
-      author: 'Author 1',
+      title: 'Advanced Crypto Trading COurse',
+      author: 'Kralow',
       rating: '4.5',
-      price: '$19.99',
+      price: '$33.99',
       enrolledStudents: '78',
-      category: 'SEO',
-      imageSrc: '/images/course1.jpg',
+      category: 'Trading',
+      imageSrc: '/images/course3.jpg',
     },
     {
       id: 2,
