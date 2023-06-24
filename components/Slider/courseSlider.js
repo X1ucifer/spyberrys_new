@@ -77,7 +77,7 @@ const CourseSlider = ({ courses, sliderId }) => {
         .swiper-button-prev,
         .swiper-button-next {
           position: absolute;
-          top:50%;
+          top:35%;
           transform: translateY(-50%);
           width: 50px;
           height: 50px;
