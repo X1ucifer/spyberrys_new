@@ -35,6 +35,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Tooltip from '@mui/material/Tooltip';
+import CourseSlider from '/components/Slider/courseSlider.js'
+
+// import CourseSlider from '../components/Slider/courseSlider';
 
 
 
@@ -124,12 +127,100 @@ const CoursePreview = () => {
   //   )
   // }
 
+
+
+
+  const courses = [
+    {
+      id: 1,
+      title: 'Advanced SEO Strategies 2023 - Level Up Your SEO Knowledge',
+      author: 'Author 1',
+      rating: '4.5',
+      price: '$19.99',
+      enrolledStudents: '78',
+      category: 'SEO',
+      imageSrc: '/images/course1.jpg',
+    },
+    {
+      id: 2,
+      title: 'Start Your Own SEO Agency From Home - The Complete Blueprint',
+      author: 'Author 2',
+      rating: '4.8',
+      price: '$29.99',
+      enrolledStudents: '78',
+      category: 'SEO',
+      imageSrc: '/images/course2.jpg',
+    },
+    {
+      id: 1,
+      title: 'Advanced Crypto Trading COurse',
+      author: 'Kralow',
+      rating: '4.5',
+      price: '$33.99',
+      enrolledStudents: '78',
+      category: 'Trading',
+      imageSrc: '/images/course3.jpg',
+    },
+    {
+      id: 2,
+      title: 'Start Your Own SEO Agency From Home - The Complete Blueprint',
+      author: 'Author 2',
+      rating: '4.8',
+      price: '$29.99',
+      enrolledStudents: '78',
+      category: 'SEO',
+      imageSrc: '/images/course2.jpg',
+    },
+    {
+      id: 2,
+      title: 'Start Your Own SEO Agency From Home - The Complete Blueprint',
+      author: 'Author 2',
+      rating: '4.8',
+      price: '$29.99',
+      enrolledStudents: '78',
+      category: 'SEO',
+      imageSrc: '/images/course2.jpg',
+    },
+    {
+      id: 1,
+      title: 'Advanced SEO Strategies 2023 - Level Up Your SEO Knowledge',
+      author: 'Author 1',
+      rating: '4.5',
+      price: '$19.99',
+      enrolledStudents: '78',
+      category: 'SEO',
+      imageSrc: '/images/course1.jpg',
+    },
+    {
+      id: 2,
+      title: 'Start Your Own SEO Agency From Home - The Complete Blueprint',
+      author: 'Author 2',
+      rating: '4.8',
+      price: '$29.99',
+      enrolledStudents: '78',
+      category: 'SEO',
+      imageSrc: '/images/course2.jpg',
+    },
+    {
+      id: 2,
+      title: 'Start Your Own SEO Agency From Home - The Complete Blueprint',
+      author: 'Author 2',
+      rating: '4.8',
+      price: '$29.99',
+      enrolledStudents: '78',
+      category: 'SEO',
+      imageSrc: '/images/course2.jpg',
+    },
+  ];
+
+
+
   return (
     <>
       <Head>
         <title>make- Course Preview</title>
       </Head>
-      <div className="bg-gray-100">
+      <div >
 
         {/* hero section */}
 
@@ -450,7 +541,7 @@ const CoursePreview = () => {
 
           <div class="basis-4/12">
 
-            <div class="relative bottom-[18rem]  h-[60rem]  w-full max-w-[28rem] flex-col rounded-xl bg-zinc-100 p-8 text-black drop-shadow-2xl">
+            <div class="relative bottom-[18rem]  h-[60rem]  w-full max-w-[28rem] flex-col rounded-xl bg-white p-8 text-black ">
               <video class="w-full h-auto max-w-full" controls>
                 <source src="/docs/videos/flowbite.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -485,20 +576,20 @@ const CoursePreview = () => {
                 </div>
 
                 <div >
-                {/* <Tooltip title="Like">
+                  {/* <Tooltip title="Like">
                 <IconButton color="primary" aria-label="add to shopping cart" >
                     <FavoriteBorderIcon fontSize='large' color='error'/>
                   </IconButton>
                   </Tooltip> */}
-                  <LikeButton/>
-                
+                  <LikeButton />
+
                 </div>
 
                 <div>
-                <Tooltip title="Add to Cart">
-                  <IconButton color="primary" aria-label="add to shopping cart">
-                    <AddShoppingCartIcon fontSize='large' />
-                  </IconButton>
+                  <Tooltip title="Add to Cart">
+                    <IconButton color="primary" aria-label="add to shopping cart">
+                      <AddShoppingCartIcon fontSize='large' />
+                    </IconButton>
                   </Tooltip>
                 </div>
               </div>
@@ -534,24 +625,24 @@ const CoursePreview = () => {
               </div>
               <hr class="h-px my-8 bg-gray-100 border-0 dark:bg-gray-400" />
 
-              {/* <div>
+              <div>
                 <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
                   Share this course
                 </Typography>
 
                 <div class="flex mt-4 space-x-6 sm:justify-around md:mt-0">
                   <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                 Gift this Course
+                    Gift this Course
                   </a>
                   <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
                     Apply coupon
                   </a>
-                 
+
                 </div>
 
 
               </div>
-              <hr class="h-px my-8 bg-gray-100 border-0 dark:bg-gray-400" /> */}
+              <hr class="h-px my-8 bg-gray-100 border-0 dark:bg-gray-400" />
 
 
               <div>
@@ -596,11 +687,14 @@ const CoursePreview = () => {
 
 
 
-        <div className="flex justify-around mt-[-15%]  max-w-full mt-10 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl overflow-auto" >
+        {/* <div className="flex justify-around mt-[-20%]  max-w-full mt-10 p-6 bg-white   overflow-auto" > 
 
 
-          <div class="basis-5/12">
-            <div class="max-w-[50rem] mt-10 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl overflow-auto">
+        <div class="basis-5/12"> */}
+            <div class="max-w-full mt-[-18%]  p-6 bg-white overflow-auto">
+            <Typography variant="h1" component="h1" marginTop={5} marginBottom={2} fontSize={30} fontWeight={'bold'} >
+            Recent Courses
+          </Typography>
               <Accordion>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
@@ -678,10 +772,43 @@ const CoursePreview = () => {
               </Accordion>
 
             </div>
-          </div>
+          {/* </div> 
 
           <div class="basis-4/12">
-            <div class="max-w-[50rem] mt-10 p-6 bg-white border border-gray-800 rounded-lg shadow bg-zinc-100 ">
+          <div class="max-w-[50rem] mt-10 p-6 bg-white border border-gray-800 rounded-lg shadow bg-zinc-100 ">
+              <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
+                Requirements
+              </Typography>
+              <Typography>
+                Just some high school mathematics level.
+              </Typography>
+
+              <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
+                Description
+              </Typography>
+              <Typography>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                malesuada lacus ex, sit amet blandit leo lobortis eget.
+              </Typography>
+
+              <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
+                Who this course is for:
+              </Typography>
+              <Typography>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                malesuada lacus ex, sit amet blandit leo lobortis eget.
+              </Typography>
+
+
+            </div> 
+
+
+
+
+          </div>
+        </div>*/}
+
+        <div class="max-w-full mt-10 p-6 bg-white border border-gray-800 rounded-lg shadow bg-zinc-100 ">
               <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
                 Requirements
               </Typography>
@@ -709,11 +836,13 @@ const CoursePreview = () => {
             </div>
 
 
-          </div>
+        <div className=' font-semibold leading-normal text-start'>
+          <Typography variant="h1" component="h1" marginTop={5} marginBottom={2} fontSize={30} fontWeight={'bold'} >
+            Recent Courses
+          </Typography>
+
+          <CourseSlider courses={courses} sliderId="slider-3" />
         </div>
-
-
-
 
 
 
