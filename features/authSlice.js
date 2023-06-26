@@ -75,7 +75,7 @@ export const becomeInstructor = createAsyncThunk(
       });
 
       const instructorToken = response.data.Message;
-      Cookie.set('instructorToken', instructorToken);
+      Cookies.set('instructorToken', instructorToken);
 
       return response.data;
     } catch (error) {
@@ -101,7 +101,7 @@ const authSlice = createSlice({
     error: null,
     isLoading: false,
     isBecomingInstructor: false,
-    isLoggedin: Boolean(Cookies.get('user')),
+    isLoggedin: Boolean(Cookies.get('user')) || false,
   },
   reducers: {
     setToken: (state, action) => {

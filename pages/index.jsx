@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+// import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Button } from '@mui/material';
@@ -7,9 +7,17 @@ import { useTheme } from 'next-themes';
 import MyComponent from "../components/ColorModes/colorSwitch";
 import Hero from "../components/Hero/hero";
 import CourseCard from '../components/Courses/courseCard';
+import { useState, useEffect, useRef } from 'react';
+import { Navigation, Pagination, Scrollbar, A11y, Controller } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
+import dynamic from 'next/dynamic';
+import CourseSlider from '../components/Slider/courseSlider';
 
 
-const Home: NextPage = () => {
+
+
+const Home = () => {
 
 
   const courses = [
@@ -35,13 +43,13 @@ const Home: NextPage = () => {
     },
     {
       id: 1,
-      title: 'Advanced SEO Strategies 2023 - Level Up Your SEO Knowledge',
-      author: 'Author 1',
+      title: 'Advanced Crypto Trading COurse',
+      author: 'Kralow',
       rating: '4.5',
-      price: '$19.99',
+      price: '$33.99',
       enrolledStudents: '78',
-      category: 'SEO',
-      imageSrc: '/images/course1.jpg',
+      category: 'Trading',
+      imageSrc: '/images/course3.jpg',
     },
     {
       id: 2,
@@ -95,7 +103,8 @@ const Home: NextPage = () => {
     },
   ];
 
-  const { theme } = useTheme();
+
+
 
 
   return (
@@ -110,15 +119,21 @@ const Home: NextPage = () => {
         <Hero />
 
         <h1 className='text-center mt-[50px] font-bold text-[40px]'>Top Courses</h1>
-        <div className="">
-       
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 m-[70px] ">
-            {courses.map((course) => (
-              <CourseCard key={course.id} {...course} />
-            ))}
-          </div>
+
+        <CourseSlider courses={courses} sliderId="slider-1" />
+
+        <CourseSlider courses={courses} sliderId="slider-2" />
+
+    
+
+
+
+
+        <div className="mb-[100px]">
+
         </div>
       </div>
+
 
     </div>
   )
