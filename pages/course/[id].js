@@ -4,6 +4,7 @@ import { ArrowBack } from '@mui/icons-material'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import LikeButton from '../../components/Button/likebutton';
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 // import { getCourses } from '../lib/api'
@@ -18,6 +19,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import DevicesIcon from '@mui/icons-material/Devices';
 import Stack from '@mui/material/Stack';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -30,6 +32,11 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import IconButton from '@mui/material/IconButton';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Tooltip from '@mui/material/Tooltip';
+
+
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -463,17 +470,37 @@ const CoursePreview = () => {
               </div>
 
 
-              <div className='flex flex-col items-center'>
-                <a href="#_" class="mt-5  relative inline-flex items-end justify-center py-3 pl-4 pr-12 overflow-hidden font-semibold text-black-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
-                  <span class="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-black group-hover:h-full"></span>
-                  <span class="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
-                    <svg class="w-5 h-5 text-black-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                  </span>
-                  <span class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                  </span>
-                  <span class="relative w-full text-center transition-colors duration-200 ease-in-out group-hover:text-white">Buy this Course</span>
-                </a>
+              <div className='flex justify-between items-end'>
+                <div>
+                  <a href="#_" class="mt-5  relative inline-flex items-end justify-center py-3 pl-4 pr-12 overflow-hidden font-semibold text-black-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
+                    <span class="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-black group-hover:h-full"></span>
+                    <span class="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
+                      <svg class="w-5 h-5 text-black-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                    <span class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
+                      <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                    <span class="relative w-full text-center transition-colors duration-200 ease-in-out group-hover:text-white">Buy this Course</span>
+                  </a>
+                </div>
+
+                <div >
+                {/* <Tooltip title="Like">
+                <IconButton color="primary" aria-label="add to shopping cart" >
+                    <FavoriteBorderIcon fontSize='large' color='error'/>
+                  </IconButton>
+                  </Tooltip> */}
+                  <LikeButton/>
+                
+                </div>
+
+                <div>
+                <Tooltip title="Add to Cart">
+                  <IconButton color="primary" aria-label="add to shopping cart">
+                    <AddShoppingCartIcon fontSize='large' />
+                  </IconButton>
+                  </Tooltip>
+                </div>
               </div>
               <hr class="h-px my-8 bg-gray-100 border-0 dark:bg-gray-400" />
 
@@ -569,7 +596,7 @@ const CoursePreview = () => {
 
 
 
-        <div className="flex justify-around mt-[-15%] " >
+        <div className="flex justify-around mt-[-15%]  max-w-full mt-10 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl overflow-auto" >
 
 
           <div class="basis-5/12">
@@ -618,20 +645,6 @@ const CoursePreview = () => {
                     malesuada lacus ex, sit amet blandit leo lobortis eget.
                   </Typography>
                 </AccordionDetails>
-
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <Typography>Accordion 1</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.
-                  </Typography>
-                </AccordionDetails>
               </Accordion>
               <Accordion>
                 <AccordionSummary
@@ -669,29 +682,29 @@ const CoursePreview = () => {
 
           <div class="basis-4/12">
             <div class="max-w-[50rem] mt-10 p-6 bg-white border border-gray-800 rounded-lg shadow bg-zinc-100 ">
-            <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
-            Requirements
-                </Typography>
-                <Typography>
+              <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
+                Requirements
+              </Typography>
+              <Typography>
                 Just some high school mathematics level.
-                  </Typography>
+              </Typography>
 
-                  <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
-            Description
-                </Typography>
-                <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.
-                  </Typography>
+              <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
+                Description
+              </Typography>
+              <Typography>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                malesuada lacus ex, sit amet blandit leo lobortis eget.
+              </Typography>
 
-                  <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
-                  Who this course is for:
-                </Typography>
-                <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.
-                  </Typography>
-                  
+              <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
+                Who this course is for:
+              </Typography>
+              <Typography>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                malesuada lacus ex, sit amet blandit leo lobortis eget.
+              </Typography>
+
 
             </div>
 
@@ -703,61 +716,9 @@ const CoursePreview = () => {
 
 
 
-        <div className="p-8 ">
-          <Typography variant="h3" gutterBottom>
-            Course Description
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-            lacinia sapien at ante egestas tincidunt. Nullam ac elit eu elit
-            consectetur faucibus ac eu enim. Sed tristique, libero in auctor
-            hendrerit, risus lacus auctor sem, ac tincidunt ipsum dolor in velit.
-            Mauris maximus, eros in eleifend tincidunt, metus mauris pharetra ex,
-            sit amet ultricies dolor turpis sit amet dui.
-          </Typography>
-          <Typography variant="h3" gutterBottom>
-            Course Curriculum
-          </Typography>
-          <div className="space-y-2">
-            <div className="flex items-center justify-between bg-white rounded-lg p-4 shadow-md">
-              <div className="flex-grow">
-                <Typography variant="subtitle1">Course Section Title</Typography>
-                <Typography variant="body2">4 Lessons</Typography>
-              </div>
-              <Button
-                variant="contained"
-                color="primary"
-                size="small"
-                startIcon={<PlayArrow />}
-                onClick={() => alert('Start section')}
-              >
-                Start
-              </Button>
-            </div>
-            <div className="flex items-center justify-between bg-white rounded-lg p-4 shadow-md">
-              <div className="flex-grow">
-                <Typography variant="subtitle1">Course Lesson Title</Typography>
-                <Typography variant="body2">25:34</Typography>
-              </div>
-              <Button
-                variant="contained"
-                color="primary"
-                size="small"
-                startIcon={<PlayArrow />}
-                onClick={() => alert('Start lesson')}
-              >
-                Start
-              </Button>
-            </div>
-          </div>
-          {!isEnrolled && (
-            <div className="flex justify-end mt-8">
-              <Button variant="contained" color="primary" onClick={handleEnroll}>
-                Enroll Now
-              </Button>
-            </div>
-          )}
-        </div>
+
+
+
       </div>
     </>
   )
