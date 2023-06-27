@@ -1,6 +1,9 @@
 const express = require('express')
 const next = require('next')
 const { createProxyMiddleware } = require("http-proxy-middleware")
+const cors = require('cors');
+
+// const app1 = express();
 
 const port = process.env.PORT || 3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -17,6 +20,15 @@ const apiPaths = {
         
     }
 }
+
+
+// app1.use(cors());
+
+// // Other server routes and logic
+
+// app1.listen(3001, () => {
+//   console.log('Dashboard server is running on port 3001');
+// });
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 

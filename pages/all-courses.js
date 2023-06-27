@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Container, Grid, Typography, TextField, Button, MenuItem } from '@mui/material';
+import { Box, Container, Grid, Typography, MenuItem, Select, Pagination, Alert } from '@mui/material';
 import { SearchIcon } from '@mui/icons-material';
 import CourseCard from '../components/Courses/courseCard';
+import CourseSlider from '../components/Slider/courseSlider';
 
 
 function Allcourses() {
@@ -90,64 +91,70 @@ function Allcourses() {
         },
     ];
 
+    const [selectedCategory, setSelectedCategory] = useState('All');
+    const [currentPage, setCurrentPage] = useState(1);
+    const coursesPerPage = 6;
 
-    const [searchQuery, setSearchQuery] = useState('');
-    const [filterOptions, setFilterOptions] = useState('');
+    // Filter courses based on selected category
+    const filteredCourses = selectedCategory === 'All' ? courses : courses.filter(course => course.category === selectedCategory);
 
-    const handleSearch = () => {
-        // Handle search logic
+    // Pagination
+    const indexOfLastCourse = currentPage * coursesPerPage;
+    const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
+    const currentCourses = filteredCourses.slice(indexOfFirstCourse, indexOfLastCourse);
+    const totalCourses = filteredCourses.length;
+    const totalPages = Math.ceil(totalCourses / coursesPerPage);
+
+    const handleCategoryChange = (event) => {
+        setSelectedCategory(event.target.value);
+        setCurrentPage(1); // Reset pagination when category changes
     };
 
-    const handleFilterChange = (event) => {
-        setFilterOptions(event.target.value);
-        // Handle filter logic
+    const handlePaginationChange = (event, value) => {
+        setCurrentPage(value);
     };
-
 
     return (
         <div className='mt-[100px]'>
-            <Container maxWidth="lg" sx={{ pt: 6 }}>
-                <Grid container spacing={4} alignItems="center" mb={4}>
-                    <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <TextField
-                           
-                            fullWidth
-                            size="small"
-                            variant="outlined"
-                            label="Search courses"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                        />
-                    </Grid>
 
-                    <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <Button
-                            variant="contained"
-                            className='bg-primary'                          
-                            // startIcon={<SearchIcon />}
-                            onClick={handleSearch}
-                            fullWidth
-                        >
-                            Search
-                        </Button>
-                    </Grid>
-                </Grid>
-                <Typography variant="h4" mb={4}>
-                    All Courses
-                </Typography>
-                <Grid container spacing={4}>
-                    {/* Render your course cards here */}
-                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 m-[70px] ">
-                        {courses.map((course) => (
-                            <CourseCard key={course.id} {...course} />
-                        ))}
+
+            <Box py={6}>
+
+
+
+                <Container maxWidth="xl">
+
+                    <Typography variant="h5">Courses to get you started</Typography>
+
+                    <div>
+                        <CourseSlider courses={courses} sliderId="slider-1" />
                     </div>
-                    {/* <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <CourseCard title="Course 2" />
-                    </Grid> */}
-                    {/* Add more CourseCard components for each course */}
-                </Grid>
-            </Container>
+
+                    <Alert variant="outlined" severity="info" sx={{ borderColor: 'black' }} className='mb-[50px]'>
+                        Not sure? All courses have a 30-day money-back guarantee
+                    </Alert>
+
+                    <Box mb={4} display="flex" alignItems="center" justifyContent="space-between">
+                        <Typography variant="h5">All Courses</Typography>
+                        <Select value={selectedCategory} onChange={handleCategoryChange} variant="outlined">
+                            <MenuItem value="All">All</MenuItem>
+                            <MenuItem value="Category 1">Category 1</MenuItem>
+                            <MenuItem value="Category 2">Category 2</MenuItem>
+                            <MenuItem value="Category 3">Category 3</MenuItem>
+                        </Select>
+                    </Box>
+                    <Grid container spacing={4}>
+                        {currentCourses.map((course) => (
+                            <Grid key={course.id} item xs={12} sm={6} md={3}>
+                                <CourseCard key={course.id} {...course} />
+                            </Grid>
+                        ))}
+                    </Grid>
+                    <Box mt={4} display="flex" justifyContent="center">
+                        <Pagination count={totalPages} page={currentPage} onChange={handlePaginationChange} />
+                    </Box>
+                </Container>
+            </Box>
         </div>
     )
 }
