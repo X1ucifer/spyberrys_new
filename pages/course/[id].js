@@ -292,12 +292,13 @@ const CoursePreview = () => {
                   <div class="max-w-[50rem] mt-10 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl ">
 
                     <div className='flex flex-wrap justify-around'>
-                      <div>
+                      <div className='w-[20rem]'>
                         <ul class="mb-8 space-y-4 text-left text-gray-500 dark:text-black">
                           <li class="flex items-center space-x-3">
 
                             <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Individual configuration</span>
+                            <span>Individual configuration Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.</span>
                           </li>
                           <li class="flex items-center space-x-3">
 
@@ -342,22 +343,25 @@ const CoursePreview = () => {
                         </ul>
                       </div>
 
-                      <div>
+                      <div className='w-[20rem]'>
                         <ul class="mb-8 space-y-4 text-left text-gray-500 dark:text-black">
                           <li class="flex items-center space-x-3">
 
                             <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Individual configuration</span>
+                            <span>Individual configuration Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.</span>
                           </li>
                           <li class="flex items-center space-x-3">
 
                             <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>No setup, or hidden fees</span>
+                            <span>Individual configuration Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.</span>
                           </li>
                           <li class="flex items-center space-x-3">
 
                             <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Team size: <span class="font-semibold text-gray-900 dark:text-black">1 developer</span></span>
+                            <span>Individual configuration Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.</span>
                           </li>
                           <li class="flex items-center space-x-3">
 
@@ -592,7 +596,10 @@ const CoursePreview = () => {
                   aria-controls="panel2a-content"
                   id="panel2a-header"
                 >
-                  <Typography>Accordion 2</Typography>
+                  <Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
