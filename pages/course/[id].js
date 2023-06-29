@@ -32,10 +32,9 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import IconButton from '@mui/material/IconButton';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import Tooltip from '@mui/material/Tooltip';
+import Paper from '@mui/material/Paper';
 import CourseSlider from '/components/Slider/courseSlider.js'
+
 
 
 
@@ -105,6 +104,14 @@ const CoursePreview = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
 
   // useEffect(() => {
   //   if (id) {
@@ -218,13 +225,13 @@ const CoursePreview = () => {
       <Head>
         <title>make- Course Preview</title>
       </Head>
-      <div >
+    
 
         {/* hero section */}
 
 
         <section className='mb-10'>
-          <div class="bg-gradient-to-r from-cyan-500 to-blue-500 h-[40rem]" >
+          <div class="bg-cover bg-[url('https://img.freepik.com/free-vector/girl-with-flying-books-with-magic-glow-library_107791-8112.jpg?w=1380&t=st=1688065623~exp=1688066223~hmac=103a859798d5c820880b3f17af9f992667736cf5c818747880798db726a01523')]  lg:h-[42rem] sm:h-[37rem] md:h-[37rem]" >
 
 
 
@@ -234,10 +241,10 @@ const CoursePreview = () => {
                   <Breadcrumbs aria-label="breadcrumb">
                     <Link
                       underline="hover"
-                      sx={{ display: 'flex', alignItems: 'center', }}
+                      sx={{ display: 'flex', alignItems: 'center', color:"white" }}
                       href="/"
                     >
-                      <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                      <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" color='primary '/>
                       Home
                     </Link>
                     <Link
@@ -277,156 +284,15 @@ const CoursePreview = () => {
 
         {/* tabs */}
 
+        <div class="container mx-auto px-5">
 
 
-        <div className="flex justify-around " >
-
-          <div class="basis-1/2">
-
-            <Box sx={{ width: '100%', }}>
-              
-            <Typography variant="h4" component="h2" marginTop={3} fontWeight={"bold"}>
-            What you'll learn
-                  </Typography>
-
-                  <div class="max-w-[50rem] mt-10 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl ">
-
-                    <div className='flex flex-wrap justify-around'>
-                      <div className='w-[20rem]'>
-                        <ul class="mb-8 space-y-4 text-left text-gray-500 dark:text-black">
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Individual configuration Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.</span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>No setup, or hidden fees</span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Team size: <span class="font-semibold text-gray-900 dark:text-black">1 developer</span></span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Premium support: <span class="font-semibold text-gray-900 dark:text-black">6 months</span></span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Free updates: <span class="font-semibold text-gray-900 dark:text-black">6 months</span></span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Team size: <span class="font-semibold text-gray-900 dark:text-black">1 developer</span></span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Premium support: <span class="font-semibold text-gray-900 dark:text-black">6 months</span></span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Free updates: <span class="font-semibold text-gray-900 dark:text-black">6 months</span></span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Free updates: <span class="font-semibold text-gray-900 dark:text-black">6 months</span></span>
-                          </li>
-                        </ul>
-                      </div>
-
-                      <div className='w-[20rem]'>
-                        <ul class="mb-8 space-y-4 text-left text-gray-500 dark:text-black">
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Individual configuration Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.</span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Individual configuration Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.</span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Individual configuration Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.</span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Premium support: <span class="font-semibold text-gray-900 dark:text-black">6 months</span></span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Free updates: <span class="font-semibold text-gray-900 dark:text-black">6 months</span></span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>No setup, or hidden fees</span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Team size: <span class="font-semibold text-gray-900 dark:text-black">1 developer</span></span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Premium support: <span class="font-semibold text-gray-900 dark:text-black">6 months</span></span>
-                          </li>
-                          <li class="flex items-center space-x-3">
-
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                            <span>Free updates: <span class="font-semibold text-gray-900 dark:text-black">6 months</span></span>
-                          </li>
-                        </ul>
-                      </div>
-
-
-                    </div>
-
-
-                  </div>
-
-
-            
-
-
-
-
-
-
-
-
-        
-            </Box>
-          </div>
-
-
-
-
-
-          {/* course buying Card */}
-
-
-
-          <div class="basis-4/12">
-
-            <div class="relative bottom-[28rem]  h-[60rem]  w-full max-w-[28rem] flex-col rounded-xl bg-white p-8 text-black ">
+        <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2} direction={{lg: "row-reverse",  xs: "column", md: "row-reverse"}} >
+       
+        <Grid item xs={6} sm={6} lg={4} alignItems="center">
+        {/* relative bottom-[28rem] */}
+        <div class="  h-[60rem]  w-full max-w-[28rem] flex-col rounded-xl bg-rose-100 p-8 text-black ">
               <video class="w-full h-auto max-w-full" controls>
                 <source src="/docs/videos/flowbite.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -558,20 +424,94 @@ const CoursePreview = () => {
               <hr class="h-px my-8 bg-gray-100 border-0 dark:bg-gray-400" />
 
             </div>
+        </Grid>
 
-          </div>
+        <Grid item xs={8}>
+    
+    <Typography variant="h4" component="h2" fontWeight={"bold"}>
+        What you'll learn
+              </Typography>
+
+              <div class="max-w-[50rem] mt-3 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl flex flex-wrap ">
+
+               
+                    <ul class="mb-8 space-y-4 text-left text-gray-500 dark:text-black lg:columns-2 sm:columns-1 lg:w-[47rem] sm:w-[24rem]  gap-[10rem]">
+                    <li class="flex space-x-3">
+
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Automate tasks on their computer by writing simple Python programs.</span>
+                      </li>
+                      <li class="flex space-x-3">
+
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Programmatically generate and update Excel spreadsheets.</span>
+                      </li>
+                      <li class="flex space-x-3">
+
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Crawl web sites and pull information from online sources.</span>
+                      </li>
+                      <li class="flex space-x-3">
+
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                       <span >Use Python's debugging tools to quickly figure out bugs in your code.</span>
+                      </li>
+                      <li class="flex space-x-3">
+
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Parse PDFs and Word documents.</span>
+                      </li>
+                      <li class="flex space-x-3">
+
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Write programs that send out email notifications.</span>
+                      </li>
+                      <li class="flex space-x-3">
+
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Programmatically control the mouse and keyboard to click and type for you.</span>
+                      </li>
+
+                      <li class="flex space-x-3">
+
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Automate tasks on their computer by writing simple Python programs.</span>
+                      </li>
+                      <li class="flex space-x-3">
+
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Programmatically generate and update Excel spreadsheets.</span>
+                      </li>
+                      <li class="flex space-x-3">
+
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Crawl web sites and pull information from online sources.</span>
+                      </li>
+                      <li class="flex space-x-3">
+
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                       <span >Use Python's debugging tools to quickly figure out bugs in your code.</span>
+                      </li>
+                      <li class="flex space-x-3">
+
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Parse PDFs and Word documents.</span>
+                      </li>
+                      <li class="flex space-x-3">
+
+                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Write programs that send out email notifications.</span>
+                      </li>
+                     
+                     
+
+                      
+                      
+                    </ul>
+                  </div>
 
 
-        </div>
-
-
-
-
-     
-
-
-        <div class="container mx-auto px-5">
-            <div class="max-w-full mt-[-18%] bg-white overflow-auto">
+                  <div class="max-w-full bg-white">
             <Typography variant="h1" component="h1" marginTop={5} marginBottom={2} fontSize={30} fontWeight={'bold'} >
             Course content
           </Typography>
@@ -655,7 +595,14 @@ const CoursePreview = () => {
               </Accordion>
 
             </div>
-         
+
+  
+
+  </Grid>
+      
+      </Grid>
+    </Box>
+
 
 
         <div class="max-w-full mt-10 p-6 bg-white border border-gray-800 rounded-lg shadow bg-zinc-100 ">
@@ -791,7 +738,7 @@ const CoursePreview = () => {
 
                   </div>
 
-                  </div>
+                 
 
 
         <div className=' font-semibold leading-normal text-start'>
@@ -805,8 +752,8 @@ const CoursePreview = () => {
 
 
 
-
-      </div>
+        </div>
+     
     </>
   )
 }
