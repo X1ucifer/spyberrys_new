@@ -12,227 +12,320 @@ import CourseSlider from "/components/Slider/courseSlider.js";
 const Profile = () => {
   const user = useSelector((state) => state.auth.user);
 
-  // useEffect(() => {
-  //   if (!user) {
-  //     // Redirect to login page if user is not logged in
-  //     window.location.href = "/login";
-  //   }
-  // }, [user]);
+  useEffect(() => {
+    if (!user) {
+      // Redirect to login page if user is not logged in
+      window.location.href = "/login";
+    }
+  }, [user]);
 
   const renderProfileContent = () => {
-    // if (!user) {
-    //   return null;
-    // }
+    if (!user) {
+      return null;
+    }
 
-    // const { role } = user;
-    const role = "student";
+    const { role } = user;
+    // const role = "student";
+
+
+    const [value, setValue] = React.useState("1");
+
+    const handleChange = (event, newValue) => {
+      setValue(newValue);
+    };
+
+    //already enrolled courses list
+
+    const enrolledcourses = [
+      {
+        id: 1,
+        title: "Advanced SEO Strategies 2023 - Level Up Your SEO Knowledge",
+        author: "Author 1",
+        rating: "4.5",
+        price: "$19.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course1.jpg",
+      },
+      {
+        id: 2,
+        title: "Start Your Own SEO Agency From Home - The Complete Blueprint",
+        author: "Author 2",
+        rating: "4.8",
+        price: "$29.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course2.jpg",
+      },
+      {
+        id: 1,
+        title: "Advanced Crypto Trading COurse",
+        author: "Kralow",
+        rating: "4.5",
+        price: "$33.99",
+        enrolledStudents: "78",
+        category: "Trading",
+        imageSrc: "/images/course3.jpg",
+      },
+      {
+        id: 2,
+        title: "Start Your Own SEO Agency From Home - The Complete Blueprint",
+        author: "Author 2",
+        rating: "4.8",
+        price: "$29.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course2.jpg",
+      },
+      {
+        id: 2,
+        title: "Start Your Own SEO Agency From Home - The Complete Blueprint",
+        author: "Author 2",
+        rating: "4.8",
+        price: "$29.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course2.jpg",
+      },
+      {
+        id: 1,
+        title: "Advanced SEO Strategies 2023 - Level Up Your SEO Knowledge",
+        author: "Author 1",
+        rating: "4.5",
+        price: "$19.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course1.jpg",
+      },
+      {
+        id: 2,
+        title: "Start Your Own SEO Agency From Home - The Complete Blueprint",
+        author: "Author 2",
+        rating: "4.8",
+        price: "$29.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course2.jpg",
+      },
+      {
+        id: 2,
+        title: "Start Your Own SEO Agency From Home - The Complete Blueprint",
+        author: "Author 2",
+        rating: "4.8",
+        price: "$29.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course2.jpg",
+      },
+    ];
+
+    //wished list api
+
+    const wishedcourses = [
+      {
+        id: 1,
+        title: "Level Up Your SEO Knowledge",
+        author: "Author 1",
+        rating: "4.5",
+        price: "$19.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course1.jpg",
+      },
+      {
+        id: 2,
+        title: "The Complete Blueprint",
+        author: "Author 2",
+        rating: "4.8",
+        price: "$29.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course2.jpg",
+      },
+      {
+        id: 1,
+        title: "Trading COurse",
+        author: "Kralow",
+        rating: "4.5",
+        price: "$33.99",
+        enrolledStudents: "78",
+        category: "Trading",
+        imageSrc: "/images/course3.jpg",
+      },
+      {
+        id: 2,
+        title: "The Complete Blueprint",
+        author: "Author 2",
+        rating: "4.8",
+        price: "$29.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course2.jpg",
+      },
+      {
+        id: 2,
+        title: "Start Your Own SEO Agency From Home",
+        author: "Author 2",
+        rating: "4.8",
+        price: "$29.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course2.jpg",
+      },
+      {
+        id: 1,
+        title: "Advanced SEO Strategies 2023",
+        author: "Author 1",
+        rating: "4.5",
+        price: "$19.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course1.jpg",
+      },
+      {
+        id: 2,
+        title: "Start Your Own SEO Agency ",
+        author: "Author 2",
+        rating: "4.8",
+        price: "$29.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course2.jpg",
+      },
+      {
+        id: 2,
+        title: "Start Your Own SEO",
+        author: "Author 2",
+        rating: "4.8",
+        price: "$29.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course2.jpg",
+      },
+    ];
+
+    //profile data api for student
+
+    const studentsprofiledetails = [
+      {
+        id: 1,
+        name: "Abi",
+        address: "Nagercoil, TamilNadu",
+       
+        bio: "An artist of considerable range, Jenna the name taken by Melbourne-raised, Brooklyn-based Nick Murphy writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.",
+        enrolledcourses: "22",
+        refferals: "10",
+      },
+    ];
+
+    //profile data api for the tutor
+
+    
+    const tutorprofiledetails = [
+      {
+        id: 1,
+        name: "Niki",
+        address: "Chennai, India",   
+        bio: "Experienced tutor with a passion for helping students excel in their academic pursuits. Skilled in creating engaging learning environments and tailoring teaching methods to individual needs for effective knowledge retention.",
+        totalcourses: "22",
+        earnings: "82",
+        refferals: "7",
+        bannerimage:"https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80",
+        profileimage: "https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg",
+      },
+    ];
+
+
+//courses which is created by tutor
+
+    const mycourses = [
+      {
+        id: 1,
+        title: "Advanced SEO Strategies 2023 - Level Up Your SEO Knowledge",
+        author: "Author 1",
+        rating: "4.5",
+        price: "$19.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course1.jpg",
+      },
+      {
+        id: 2,
+        title: "Start Your Own SEO Agency From Home - The Complete Blueprint",
+        author: "Author 2",
+        rating: "4.8",
+        price: "$29.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course2.jpg",
+      },
+      {
+        id: 1,
+        title: "Advanced Crypto Trading COurse",
+        author: "Kralow",
+        rating: "4.5",
+        price: "$33.99",
+        enrolledStudents: "78",
+        category: "Trading",
+        imageSrc: "/images/course3.jpg",
+      },
+      {
+        id: 2,
+        title: "Start Your Own SEO Agency From Home - The Complete Blueprint",
+        author: "Author 2",
+        rating: "4.8",
+        price: "$29.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course2.jpg",
+      },
+      {
+        id: 2,
+        title: "Start Your Own SEO Agency From Home - The Complete Blueprint",
+        author: "Author 2",
+        rating: "4.8",
+        price: "$29.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course2.jpg",
+      },
+      {
+        id: 1,
+        title: "Advanced SEO Strategies 2023 - Level Up Your SEO Knowledge",
+        author: "Author 1",
+        rating: "4.5",
+        price: "$19.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course1.jpg",
+      },
+      {
+        id: 2,
+        title: "Start Your Own SEO Agency From Home - The Complete Blueprint",
+        author: "Author 2",
+        rating: "4.8",
+        price: "$29.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course2.jpg",
+      },
+      {
+        id: 2,
+        title: "Start Your Own SEO Agency From Home - The Complete Blueprint",
+        author: "Author 2",
+        rating: "4.8",
+        price: "$29.99",
+        enrolledStudents: "78",
+        category: "SEO",
+        imageSrc: "/images/course2.jpg",
+      },
+    ];
+
+
+
 
     if (role === "student") {
-      const [value, setValue] = React.useState("1");
-
-      const handleChange = (event, newValue) => {
-        setValue(newValue);
-      };
-
-      //already enrolled courses list
-
-      const enrolledcourses = [
-        {
-          id: 1,
-          title: "Advanced SEO Strategies 2023 - Level Up Your SEO Knowledge",
-          author: "Author 1",
-          rating: "4.5",
-          price: "$19.99",
-          enrolledStudents: "78",
-          category: "SEO",
-          imageSrc: "/images/course1.jpg",
-        },
-        {
-          id: 2,
-          title: "Start Your Own SEO Agency From Home - The Complete Blueprint",
-          author: "Author 2",
-          rating: "4.8",
-          price: "$29.99",
-          enrolledStudents: "78",
-          category: "SEO",
-          imageSrc: "/images/course2.jpg",
-        },
-        {
-          id: 1,
-          title: "Advanced Crypto Trading COurse",
-          author: "Kralow",
-          rating: "4.5",
-          price: "$33.99",
-          enrolledStudents: "78",
-          category: "Trading",
-          imageSrc: "/images/course3.jpg",
-        },
-        {
-          id: 2,
-          title: "Start Your Own SEO Agency From Home - The Complete Blueprint",
-          author: "Author 2",
-          rating: "4.8",
-          price: "$29.99",
-          enrolledStudents: "78",
-          category: "SEO",
-          imageSrc: "/images/course2.jpg",
-        },
-        {
-          id: 2,
-          title: "Start Your Own SEO Agency From Home - The Complete Blueprint",
-          author: "Author 2",
-          rating: "4.8",
-          price: "$29.99",
-          enrolledStudents: "78",
-          category: "SEO",
-          imageSrc: "/images/course2.jpg",
-        },
-        {
-          id: 1,
-          title: "Advanced SEO Strategies 2023 - Level Up Your SEO Knowledge",
-          author: "Author 1",
-          rating: "4.5",
-          price: "$19.99",
-          enrolledStudents: "78",
-          category: "SEO",
-          imageSrc: "/images/course1.jpg",
-        },
-        {
-          id: 2,
-          title: "Start Your Own SEO Agency From Home - The Complete Blueprint",
-          author: "Author 2",
-          rating: "4.8",
-          price: "$29.99",
-          enrolledStudents: "78",
-          category: "SEO",
-          imageSrc: "/images/course2.jpg",
-        },
-        {
-          id: 2,
-          title: "Start Your Own SEO Agency From Home - The Complete Blueprint",
-          author: "Author 2",
-          rating: "4.8",
-          price: "$29.99",
-          enrolledStudents: "78",
-          category: "SEO",
-          imageSrc: "/images/course2.jpg",
-        },
-      ];
-
-      //wished list api
-
-      const wishedcourses = [
-        {
-          id: 1,
-          title: "Level Up Your SEO Knowledge",
-          author: "Author 1",
-          rating: "4.5",
-          price: "$19.99",
-          enrolledStudents: "78",
-          category: "SEO",
-          imageSrc: "/images/course1.jpg",
-        },
-        {
-          id: 2,
-          title: "The Complete Blueprint",
-          author: "Author 2",
-          rating: "4.8",
-          price: "$29.99",
-          enrolledStudents: "78",
-          category: "SEO",
-          imageSrc: "/images/course2.jpg",
-        },
-        {
-          id: 1,
-          title: "Trading COurse",
-          author: "Kralow",
-          rating: "4.5",
-          price: "$33.99",
-          enrolledStudents: "78",
-          category: "Trading",
-          imageSrc: "/images/course3.jpg",
-        },
-        {
-          id: 2,
-          title: "The Complete Blueprint",
-          author: "Author 2",
-          rating: "4.8",
-          price: "$29.99",
-          enrolledStudents: "78",
-          category: "SEO",
-          imageSrc: "/images/course2.jpg",
-        },
-        {
-          id: 2,
-          title: "Start Your Own SEO Agency From Home",
-          author: "Author 2",
-          rating: "4.8",
-          price: "$29.99",
-          enrolledStudents: "78",
-          category: "SEO",
-          imageSrc: "/images/course2.jpg",
-        },
-        {
-          id: 1,
-          title: "Advanced SEO Strategies 2023",
-          author: "Author 1",
-          rating: "4.5",
-          price: "$19.99",
-          enrolledStudents: "78",
-          category: "SEO",
-          imageSrc: "/images/course1.jpg",
-        },
-        {
-          id: 2,
-          title: "Start Your Own SEO Agency ",
-          author: "Author 2",
-          rating: "4.8",
-          price: "$29.99",
-          enrolledStudents: "78",
-          category: "SEO",
-          imageSrc: "/images/course2.jpg",
-        },
-        {
-          id: 2,
-          title: "Start Your Own SEO",
-          author: "Author 2",
-          rating: "4.8",
-          price: "$29.99",
-          enrolledStudents: "78",
-          category: "SEO",
-          imageSrc: "/images/course2.jpg",
-        },
-      ];
-
-      //profile data api for student
-
-      const studentsprofiledetails = [
-        {
-          id: 1,
-          name: "Abi",
-          address: "Nagercoil, TamilNadu",
-         
-          bio: "An artist of considerable range, Jenna the name taken by Melbourne-raised, Brooklyn-based Nick Murphy writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.",
-          enrolledcourses: "22",
-          refferals: "10",
-        },
-      ];
-
-      //profile data api for the tutor
-
       
-      const tutorprofiledetails = [
-        {
-          id: 1,
-          name: "Gopal",
-          address: "Chennai, India",
-         
-          bio: "Experienced tutor with a passion for helping students excel in their academic pursuits. Skilled in creating engaging learning environments and tailoring teaching methods to individual needs for effective knowledge retention.",
-          totalcourses: "22",
-          earnings: "100",
-          refferals: "7"
-        },
-      ];
 
       return (
         <div className="mt-[10px]">
@@ -451,11 +544,12 @@ const Profile = () => {
 
             <main className="profile-page">
               <section className="relative block h-500-px">
+              {tutorprofiledetails.map((item, i) => (
                 <div
                   className="absolute top-0 w-full h-full bg-center bg-cover"
                   style={{
                     backgroundImage:
-                      "url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80')",
+                    "{item.bannerimage}"
                   }}
                 >
                   <span
@@ -463,6 +557,7 @@ const Profile = () => {
                     className="w-full h-full absolute opacity-50 bg-black"
                   ></span>
                 </div>
+     ))}
                 <div
                   className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
                   style={{ transform: "translateZ(0px)" }}
@@ -492,14 +587,17 @@ const Profile = () => {
                     {tutorprofiledetails.map((item, i) => (
                       <div className="flex flex-wrap justify-center">
                         <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
+                        {tutorprofiledetails.map((item, i) => (
                           <div className="relative">
                             <img
                               alt="..."
-                              src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg"
+                            
+                              src={item.profileimage}
                               className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
                             />
-                          </div>
+                          </div> ))}
                         </div>
+                        
                         <div className="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
                           <div className="py-6 px-3 mt-32 sm:mt-0">
                             <button
@@ -526,7 +624,7 @@ const Profile = () => {
                               {item.earnings}
                               </span>
                               <span className="text-sm text-blueGray-400">
-                                Earnings($)
+                                Earnings ($)
                               </span>
                             </div>
                             <div className="lg:mr-4 p-3 text-center">
@@ -560,7 +658,7 @@ const Profile = () => {
                           </div> */}
                         </div>
                       ))}
-                      {profiledetails.map((item, i) => (
+                      {tutorprofiledetails.map((item, i) => (
                         <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
                           <div className="flex flex-wrap justify-center">
                             <div className="w-full lg:w-9/12 px-4">
@@ -585,15 +683,15 @@ const Profile = () => {
                               aria-label="lab API tabs example"
                               centered="true"
                             >
-                              <Tab label="Enrolled Courses" value="1" />
-                              <Tab label="Your Wishlist" value="2" />
+                              <Tab label="My Courses" value="1" />
+                              <Tab label="My Playlists" value="2" />
                             </TabList>
                           </Box>
 
                           <TabPanel value="1">
                             <div class="max-w-full mt-10 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl ">
                               <CourseSlider
-                                courses={enrolledcourses}
+                                courses={mycourses}
                                 sliderId="slider-1"
                               />
                             </div>
@@ -620,6 +718,10 @@ const Profile = () => {
         </div>
       );
       </>;
+
+
+
+
     } else {
       return (
         <div>
