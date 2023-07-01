@@ -259,22 +259,21 @@ const CoursePreview = () => {
           <div class=" flex flex-col items-start px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-20 dark:text-gray-900">
             <div className='mb-20'>
               <div role="presentation" onClick={handleClick}>
-                <Breadcrumbs aria-label="breadcrumb">
+                <Breadcrumbs aria-label="breadcrumb" className='text-[white]' >
                   <Link
                     underline="hover"
                     sx={{ display: 'flex', alignItems: 'center', color: "white" }}
                     href="/"
                   >
-                    <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" color='primary ' />
+                    <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                     Home
                   </Link>
                   <Link
                     underline="hover"
                     sx={{ display: 'flex', alignItems: 'center' }}
-                    color="white"
                     href="/"
                   >
-                    <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                    <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit"/>
                     Course
                   </Link>
 
