@@ -30,6 +30,8 @@ import CourseSlider from '/components/Slider/courseSlider.js'
 import Rating from '@mui/material/Rating';
 import Avatar from '@mui/material/Avatar';
 
+ 
+
 
 
 
@@ -74,9 +76,10 @@ const CoursePreview = () => {
 
   const [expanded, setExpanded] = React.useState('panel1');
 
-  const handleAccordion = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
+  const handleExpandAll = () => {
+    setExpanded(!expanded);
   };
+
 
 
   const router = useRouter()
@@ -241,6 +244,7 @@ const CoursePreview = () => {
 
 
 
+
   return (
     <>
       <Head>
@@ -313,7 +317,7 @@ const CoursePreview = () => {
 
             <Grid item xs={6} sm={6} lg={4} alignItems="center">
               {/* relative bottom-[28rem] */}
-              <div class="  h-[60rem]  w-full max-w-[28rem] flex-col rounded-xl bg-rose-100 p-8 text-black ">
+              <div class="  h-[60rem]  w-full max-w-[28rem] flex-col rounded-xl bg-zinc-100 p-8 text-black ">
                 <video class="w-full h-auto max-w-full" controls>
                   <source src="/docs/videos/flowbite.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
@@ -529,11 +533,38 @@ const CoursePreview = () => {
               </div>
 
 
-              <div class="max-w-full bg-white">
+              <div class="max-w-[50rem] bg-white">
                 <Typography variant="h1" component="h1" marginTop={10} marginBottom={2} fontSize={25} fontWeight={'bold'} >
                   Course content
                 </Typography>
-                <Accordion>
+
+                <div className='flex justify-between  items-center mt-5 mb-3 max-sm:flex-col  max-sm:gap-3'>
+                  <div>
+                  <ul class="flex flex-wrap items-center justify-around text-gray-900 dark:text-black text-sm ">
+
+                    <li className='md:mr-3'> 16 sections</li>
+                    <li className='md:mr-3'> 51 lectures </li>
+                    <li className='md:mr-3'>9h 30m total length</li>
+                    </ul>
+              
+                  </div>
+
+
+
+                  <div >
+
+                  <a href="#_" onClick={handleExpandAll}>
+                      <span className='font-semibold font-sans text-primary  border border-primary rounded-sm p-1'> {expanded ? 'Collapse all Sections' : 'Expand all Sections'}</span>
+                    </a>
+ 
+
+                  </div>
+                </div>
+
+
+
+       
+                <Accordion expanded={expanded}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
@@ -548,16 +579,13 @@ const CoursePreview = () => {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
-                <Accordion>
+                <Accordion expanded={expanded}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography  fontSize={15}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                      malesuada lacus ex, sit amet blandit leo lobortis eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                      malesuada lacus ex, sit amet blandit leo lobortis eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                      malesuada lacus ex, sit amet blandit leo lobortis eget.</Typography>
+                    <Typography  fontSize={15}>Python basics</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography  fontSize={15}>
@@ -566,7 +594,7 @@ const CoursePreview = () => {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
-                <Accordion >
+                <Accordion expanded={expanded}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel3a-content"
@@ -581,7 +609,7 @@ const CoursePreview = () => {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
-                <Accordion>
+                <Accordion expanded={expanded}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
@@ -596,7 +624,7 @@ const CoursePreview = () => {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
-                <Accordion >
+                <Accordion expanded={expanded}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel3a-content"
@@ -623,7 +651,15 @@ const CoursePreview = () => {
 
 
 
-        <div class="max-w-full mt-10 p-6 bg-white border border-gray-800 rounded-lg shadow bg-zinc-100 ">
+
+
+
+
+
+
+
+
+        <div class="max-w-[50rem] mt-10 p-6  border border-gray-800 rounded-lg shadow bg-zinc-100 ">
           <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
             Requirements
           </Typography>
