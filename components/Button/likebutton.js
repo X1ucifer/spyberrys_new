@@ -1,29 +1,30 @@
 import React from "react";
 import { Tooltip, IconButton } from "@mui/material";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useState } from "react";
 
-const LikeButton = ({ likesCount }) => {
+const LikeButton = () => {
+  const [isAddedToWishlist, setIsAddedToWishlist] = useState(false);
+
   const handleClick = () => {
-    // Change the button color to red.
-    document.querySelector(".like-button").style.color = "red";
-
-    // Increment the likes count.
-    const newLikesCount = likesCount + 1;
-    document.querySelector(".likes-count").textContent = newLikesCount;
+    setIsAddedToWishlist(!isAddedToWishlist);
   };
 
+  const icon = isAddedToWishlist ? <FavoriteIcon color="error" fontSize="large"/> :<FavoriteBorderIcon fontSize="large"/> ;
+
   return (
-    <>
-    <Tooltip title="Like">
-          <IconButton
-              color="primary"
-              aria-label="add to shopping cart"
-              onClick={handleClick}
-              
-          >
-              <FavoriteBorderIcon fontSize="large" color="error" />
-          </IconButton>
-      </Tooltip><span class="likes-count">{likesCount}</span>
+    <>  
+    <Tooltip title="Add to Cart">
+    <IconButton
+      type="button"
+      onClick={handleClick}
+      variant="contained"
+     
+    >
+      {icon}
+      </IconButton>
+      </Tooltip>
       </>
   );
 };

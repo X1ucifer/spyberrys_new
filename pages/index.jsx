@@ -13,7 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import dynamic from 'next/dynamic';
 import CourseSlider from '../components/Slider/courseSlider';
-
+import Cart from '../components/cart/cart';
 
 
 
@@ -125,7 +125,7 @@ const Home = () => {
         <CourseSlider courses={courses} sliderId="slider-2" />
 
     
-
+{/* <Cart/> */}
 
 
 
