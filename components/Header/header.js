@@ -1,55 +1,56 @@
 import Link from "next/link";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import React, { useState, useEffect } from "react";
-import { useSelector } from 'react-redux';
-import { Avatar } from '@mui/material';
-import AnimatedAvatar from "../Avatar/avatar"
-import { useRouter } from 'next/router';
-
+import { useSelector } from "react-redux";
+import { Avatar } from "@mui/material";
+import AnimatedAvatar from "../Avatar/avatar";
+import { useRouter } from "next/router";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
 const Header = () => {
-
   const router = useRouter();
-  const isHome = router.pathname === '/';
+  const isHome = router.pathname === "/";
 
   const [isOpen, setIsOpen] = useState(false);
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedin);
-  const user = useSelector(state => state.auth.user);
+  const user = useSelector((state) => state.auth.user);
 
-  console.log("head", user)
-
+  console.log("head", user);
 
   const [scrollPos, setScrollPos] = useState(0);
-  const [headerClass, setHeaderClass] = useState('');
-  const [loginstyle, setLoginstyle] = useState('');
-
+  const [headerClass, setHeaderClass] = useState("");
+  const [loginstyle, setLoginstyle] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrollPos(window.pageYOffset);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-
   useEffect(() => {
     if (scrollPos > 0) {
-      setHeaderClass('bg-black shadow-md');
-      setLoginstyle(' text-primary');
+      setHeaderClass("bg-black shadow-md");
+      setLoginstyle(" text-primary");
     } else {
-      setHeaderClass('');
-      setLoginstyle('');
+      setHeaderClass("");
+      setLoginstyle("");
     }
   }, [scrollPos]);
 
-
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${scrollPos > 0 || !isHome ? "text-[#62647D] bg-black shadow-md " : "text-white"}  ${headerClass} `}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        scrollPos > 0 || !isHome
+          ? "text-[#62647D] bg-black shadow-md "
+          : "text-white"
+      }  ${headerClass} `}
+    >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 ">
           <div className="flex-shrink-0">
@@ -69,8 +70,8 @@ const Header = () => {
                   All Courses
                 </a>
               </Link>
-  
-              {user && user.role === "Instructor" ?
+
+              {user && user.role === "Instructor" ? (
                 <>
                   <Link href="/course/course-create" legacyBehavior>
                     <a className="text-white hover:text-gray-200  pr-[15px] font-semibold text-[14px]">
@@ -78,7 +79,7 @@ const Header = () => {
                     </a>
                   </Link>
                 </>
-                :
+              ) : (
                 <>
                   <Link href="/teach-on-spyberrys" legacyBehavior>
                     <a className="text-white hover:text-gray-200  pr-[15px] font-semibold text-[14px]">
@@ -86,16 +87,19 @@ const Header = () => {
                     </a>
                   </Link>
                 </>
-              }
+              )}
 
-
-
-
+              <div>
+                {/* <Link href="/cart" legacyBehavior> */}
+                  <a className="text-white hover:text-gray-200  pr-[15px] font-semibold text-[14px]">
+                    <ShoppingCartOutlinedIcon />
+                  </a>
+                {/* </Link> */}
+              </div>
 
               {isLoggedIn ? (
                 <div className="mb-[4px]">
                   <AnimatedAvatar />
-
                 </div>
               ) : (
                 <>
@@ -105,15 +109,18 @@ const Header = () => {
                     </a>
                   </Link>
                   <Link href="/login">
-                    <button className={` ${loginstyle} ${scrollPos > 0 || !isHome ? "pl-[12px] pr-[12px] pt-[6px] pb-[6px] text-[13px] border-[1px] border-primary rounded-md font-bold  hover:bg-primary hover:text-[white] hover:border-primary" : "pl-[12px] pr-[12px] pt-[6px] pb-[6px] text-[13px] border-[1px] border-white rounded-md font-bold  hover:bg-primary hover:text-[white] hover:border-primary"}`}>
+                    <button
+                      className={` ${loginstyle} ${
+                        scrollPos > 0 || !isHome
+                          ? "pl-[12px] pr-[12px] pt-[6px] pb-[6px] text-[13px] border-[1px] border-primary rounded-md font-bold  hover:bg-primary hover:text-[white] hover:border-primary"
+                          : "pl-[12px] pr-[12px] pt-[6px] pb-[6px] text-[13px] border-[1px] border-white rounded-md font-bold  hover:bg-primary hover:text-[white] hover:border-primary"
+                      }`}
+                    >
                       Login
                     </button>
                   </Link>
                 </>
-
               )}
-
-
             </div>
           </div>
           <div className="-mr-2 flex md:hidden">
@@ -137,13 +144,19 @@ const Header = () => {
       <div className={isOpen ? "block" : "hidden"}>
         <div className="pt-2 pb-3 space-y-1">
           <Link href="/" legacyBehavior>
-            <a className="text-gray-800 hover:text-gray-600 font-medium block px-3 py-2 rounded-md text-base">Home</a>
+            <a className="text-gray-800 hover:text-gray-600 font-medium block px-3 py-2 rounded-md text-base">
+              Home
+            </a>
           </Link>
           <Link href="/about" legacyBehavior>
-            <a className="text-gray-800 hover:text-gray-600 font-medium block px-3 py-2 rounded-md text-base">About</a>
+            <a className="text-gray-800 hover:text-gray-600 font-medium block px-3 py-2 rounded-md text-base">
+              About
+            </a>
           </Link>
           <Link href="/contact" legacyBehavior>
-            <a className="text-gray-800 hover:text-gray-600 font-medium block px-3 py-2 rounded-md text-base">Contact</a>
+            <a className="text-gray-800 hover:text-gray-600 font-medium block px-3 py-2 rounded-md text-base">
+              Contact
+            </a>
           </Link>
         </div>
       </div>

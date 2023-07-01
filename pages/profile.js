@@ -223,7 +223,7 @@ const Profile = () => {
             {/*educator profile content can be placed here*/}
 
             <main className="profile-page">
-              <section className="relative block h-500-px">
+              {/* <section className="relative block h-500-px">
                 <div
                   className="absolute top-0 w-full h-full bg-center bg-cover"
                   style={{
@@ -255,7 +255,10 @@ const Profile = () => {
                     ></polygon>
                   </svg>
                 </div>
-              </section>
+              </section> */}
+
+
+              
 
               <section className="relative py-16 bg-blueGray-200">
                 <div className="container mx-auto px-4">
