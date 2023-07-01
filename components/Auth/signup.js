@@ -92,7 +92,7 @@ function SignupComponent() {
         const loadingToastId = toast.loading('Submitting email...');
         try {
             const { data } = await axios.post(
-                `/api/signup`, {
+                `/api/v1/auth/signup`, {
 
                 Mail: email
 
@@ -126,7 +126,7 @@ function SignupComponent() {
 
         try {
             const { data } = await axios.post(
-                `/api/verify_otp`, {
+                `/api/v1/auth/verify_otp`, {
 
                 Mail: email,
                 otp: otp
@@ -163,7 +163,7 @@ function SignupComponent() {
 
         try {
             const { data } = await axios.post(
-                `/api/register`, {
+                `/api/v1/auth/register`, {
                 firstname: fname,
                 lastname: lname,
                 Mail: email,

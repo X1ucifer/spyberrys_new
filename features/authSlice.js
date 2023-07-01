@@ -17,7 +17,7 @@ export const login = createAsyncThunk('auth/login', async (userData, thunkAPI) =
   try {
     console.log("redux", userData)
     const { data } = await axios.post(
-      `/api/login`, {
+      `/api/v1/auth/login`, {
 
       Mail: userData.email,
       password: userData.password
@@ -41,7 +41,7 @@ export const login = createAsyncThunk('auth/login', async (userData, thunkAPI) =
 export const fetchUser = createAsyncThunk('user/fetch', async (_, thunkAPI) => {
   const token = thunkAPI.getState().auth.token;
   try {
-    const response = await axios.get('/api/get_user', {
+    const response = await axios.get('/api/v1/auth/get_user', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -63,7 +63,7 @@ export const becomeInstructor = createAsyncThunk(
 
     console.log("redux teacher", token)
     try {
-      const response = await axios.post('/api/make_instructor', {
+      const response = await axios.post('/api/v1/auth/make_instructor', {
 
         phone: teacherData.phone,
         dateofbirth: teacherData.value.$d
