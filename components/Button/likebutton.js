@@ -14,7 +14,7 @@ const LikeButton = () => {
   const icon = isAddedToWishlist ? <FavoriteIcon color="error" fontSize="large"/> :<FavoriteBorderIcon fontSize="large"/> ;
 
   return (
-    <>
+    <>  
     <Tooltip title="Add to Cart">
     <IconButton
       type="button"
