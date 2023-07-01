@@ -75,7 +75,7 @@ export const becomeInstructor = createAsyncThunk(
       });
 
       const instructorToken = response.data.Message;
-      Cookies.set('instructorToken', instructorToken);
+      Cookies.set('token', instructorToken);
 
       return response.data;
     } catch (error) {
