@@ -1,6 +1,5 @@
-import { Box, Button, Card, CardActions, CardContent, CardHeader, Divider, Grid, Typography } from '@mui/material'
+import { Box, Button, Card, CardActions, CardContent, CardHeader, Grid, Typography,Chip } from '@mui/material'
 import * as React from 'react';
-import { ArrowBack } from '@mui/icons-material'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -30,7 +29,7 @@ import CourseSlider from '/components/Slider/courseSlider.js'
 import Rating from '@mui/material/Rating';
 import Avatar from '@mui/material/Avatar';
 
- 
+
 
 
 
@@ -131,32 +130,68 @@ const CoursePreview = () => {
   // }
 
   useEffect(() => {
-  document.addEventListener('DOMContentLoaded', function () {
-    new Swiper('.swiper-container', {
-      loop: true,
-      slidesPerView: 1,
-      spaceBetween: 32,
-      autoplay: {
-        delay: 8000,
-      },
-      breakpoints: {
-        640: {
-          centeredSlides: true,
-          slidesPerView: 1.25,
+    document.addEventListener('DOMContentLoaded', function () {
+      new Swiper('.swiper-container', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 32,
+        autoplay: {
+          delay: 8000,
         },
-        1024: {
-          centeredSlides: false,
-          slidesPerView: 1.5,
+        breakpoints: {
+          640: {
+            centeredSlides: true,
+            slidesPerView: 1.25,
+          },
+          1024: {
+            centeredSlides: false,
+            slidesPerView: 1.5,
+          },
         },
-      },
-      navigation: {
-        nextEl: '.next-button',
-        prevEl: '.prev-button',
-      },
+        navigation: {
+          nextEl: '.next-button',
+          prevEl: '.prev-button',
+        },
+      })
     })
-  })
 
-}, [])
+  }, [])
+
+
+
+  const coursespreview = [
+    {
+        id: 1,
+        banner_image:'',
+        category: 'SEO',
+        course_title: 'Advanced SEO Strategies 2023 - Level Up Your SEO Knowledge',
+        short_description:'Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.',
+        rating: '4.5',
+        author: 'Author 1',
+        what_you_learn:['Automate tasks on their computer by writing simple Python programs.','Automate tasks on their computer by writing simple Python programs.'],
+        thumbnail:'',
+        price: '$19.99',
+
+        // Course content
+        total_sections:'',
+        total_lectures:'',
+        total_length:'',
+
+
+
+        Requirements:'',
+        long_description:'',
+        who_this_course_is_for:'',
+        reviews:'',
+        reviewer_name:'',
+        reviewer_image:'',
+        reviewer_star:'',
+
+        enrolledStudents: '78',
+        imageSrc: '/images/course1.jpg',
+    },
+   
+];
 
 
   const courses = [
@@ -277,7 +312,7 @@ const CoursePreview = () => {
                     sx={{ display: 'flex', alignItems: 'center' }}
                     href="/"
                   >
-                    <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit"/>
+                    <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                     Course
                   </Link>
 
@@ -286,6 +321,9 @@ const CoursePreview = () => {
             </div>
 
             {/* herotext */}
+            <div className="flex items-center mb-2">
+            <Chip label={"dev"} size="small" className="text-xs font-medium mr-2 bg-primary text-white" />
+          </div>
 
             <h1 class="max-w-lg text-4xl font-semibold leading-normal text-gray-900 dark:text-white text-start">Machine Learning A-Z™: AI, Python & R + ChatGPT Bonus [2023]</h1>
             <p class="mt-5  text-lg sm:mb-4 max-w-lg dark:text-white text-start">Learn to create Machine Learning Algorithms in Python and R from two Data Science experts. Code templates included.</p>
@@ -295,8 +333,8 @@ const CoursePreview = () => {
               <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Second star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
               <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Third star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
               <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fourth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-              <svg aria-hidden="true" class="w-5 h-5 text-black dark:text-black" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-              <p class="ml-2 text-sm font-medium text-gray-900 dark:text-black">4.95 out of 5</p>
+              <svg aria-hidden="true" class="w-5 h-5 text-black text-slate-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Fifth star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+              <p class="ml-2 text-sm font-medium text-gray-900 dark:text-white">4.95 out of 5</p>
 
             </div>
             <p class="mt-3 mb-8 text-lg sm:mb-12 max-w-lg dark:text-white text-start">Created by ........................</p>
@@ -312,11 +350,11 @@ const CoursePreview = () => {
 
 
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={2} direction={{ lg: "row-reverse", xs: "column", md: "row-reverse" }} >
+          <Grid container spacing={2} direction={{ lg: "row-reverse", sm: "column", xs: "column", md: "row-reverse" }} >
 
-            <Grid item xs={6} sm={6} lg={4} alignItems="center">
+            <Grid item xs={6} sm={12} lg={4} md={4} alignItems="center">
               {/* relative bottom-[28rem] */}
-              <div class="  h-[60rem]  w-full max-w-[28rem] flex-col rounded-xl bg-zinc-100 p-8 text-black ">
+              <div class="md:h-[68rem]  lg:h-[60rem]  w-full lg:w-[28rem] md:w-[47rem] flex-col rounded-xl bg-zinc-100 p-8 text-black md:mb-10 lg:mb-0">
                 <video class="w-full h-auto max-w-full" controls>
                   <source src="/docs/videos/flowbite.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
@@ -336,10 +374,10 @@ const CoursePreview = () => {
                 </div>
 
 
-                <div className='flex place-content-evenly  items-center mt-5'>
+                <div className='flex place-content-evenly  items-center mt-5 max-sm:flex-col max-sm:mt-10' >
                   <div>
 
-                    <a href="#_" class="relative rounded px-5 py-2.5 overflow-hidden group bg-green-500 relative hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+                    <a href="#_" class="relative rounded px-5 py-[1.2rem] overflow-hidden group bg-green-500 relative hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
                       <span class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
                       <span class="relative">Buy this Course</span>
                     </a>
@@ -348,7 +386,7 @@ const CoursePreview = () => {
 
 
 
-                  <div >
+                  <div className='max-sm:mt-10'>
 
                     <LikeButton />
 
@@ -443,13 +481,13 @@ const CoursePreview = () => {
               </div>
             </Grid>
 
-            <Grid item xs={8}>
+            <Grid item xs={8} sm={12} lg={8} md={8}>
 
               <Typography variant="h4" component="h2" fontWeight={"bold"} fontSize={"25px"}>
                 What you'll learn
               </Typography>
 
-              <div class="max-w-[50rem] mt-3 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl flex flex-wrap ">
+              <div class="lg:w-[50rem] mt-3 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl flex flex-wrap ">
 
 
                 <ul class="mb-8 space-y-4 text-left text-gray-500 dark:text-black lg:columns-2 sm:columns-1 lg:w-[47rem] sm:w-[24rem]  gap-[10rem]">
@@ -539,40 +577,40 @@ const CoursePreview = () => {
 
                 <div className='flex justify-between  items-center mt-5 mb-3 max-sm:flex-col  max-sm:gap-3'>
                   <div>
-                  <ul class="flex flex-wrap items-center justify-around text-gray-900 dark:text-black text-sm ">
+                    <ul class="flex flex-wrap items-center justify-around text-gray-900 dark:text-black text-sm ">
 
-                    <li className='md:mr-3'> 16 sections</li>
-                    <li className='md:mr-3'> 51 lectures </li>
-                    <li className='md:mr-3'>9h 30m total length</li>
+                      <li className='md:mr-3'> 16 sections</li>
+                      <li className='md:mr-3'> 51 lectures </li>
+                      <li className='md:mr-3'>9h 30m total length</li>
                     </ul>
-              
+
                   </div>
 
 
 
                   <div >
 
-                  <a href="#_" onClick={handleExpandAll}>
+                    <a href="#_" onClick={handleExpandAll}>
                       <span className='font-semibold font-sans text-primary  border border-primary rounded-sm p-1'> {expanded ? 'Collapse all Sections' : 'Expand all Sections'}</span>
                     </a>
- 
+
 
                   </div>
                 </div>
 
 
 
-       
+
                 <Accordion expanded={expanded}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography  fontSize={15}>Accordion 1</Typography>
+                    <Typography fontSize={15}>Accordion 1</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <Typography  fontSize={15}>
+                    <Typography fontSize={15}>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                       malesuada lacus ex, sit amet blandit leo lobortis eget.
                     </Typography>
@@ -584,10 +622,10 @@ const CoursePreview = () => {
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography  fontSize={15}>Python basics</Typography>
+                    <Typography fontSize={15}>Python basics</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <Typography  fontSize={15}>
+                    <Typography fontSize={15}>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                       malesuada lacus ex, sit amet blandit leo lobortis eget.
                     </Typography>
@@ -599,10 +637,10 @@ const CoursePreview = () => {
                     aria-controls="panel3a-content"
                     id="panel3a-header"
                   >
-                    <Typography  fontSize={15}>Disabled Accordion</Typography>
+                    <Typography fontSize={15}>Disabled Accordion</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <Typography  fontSize={15}>
+                    <Typography fontSize={15}>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                       malesuada lacus ex, sit amet blandit leo lobortis eget.
                     </Typography>
@@ -614,10 +652,10 @@ const CoursePreview = () => {
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography  fontSize={15}>Accordion 2</Typography>
+                    <Typography fontSize={15}>Accordion 2</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <Typography  fontSize={15}>
+                    <Typography fontSize={15}>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                       malesuada lacus ex, sit amet blandit leo lobortis eget.
                     </Typography>
@@ -629,10 +667,10 @@ const CoursePreview = () => {
                     aria-controls="panel3a-content"
                     id="panel3a-header"
                   >
-                    <Typography  fontSize={15}>Disabled Accordion</Typography>
+                    <Typography fontSize={15}>Disabled Accordion</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <Typography  fontSize={15}>
+                    <Typography fontSize={15}>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                       malesuada lacus ex, sit amet blandit leo lobortis eget.
                     </Typography>
@@ -658,32 +696,154 @@ const CoursePreview = () => {
 
 
 
-        <div class="max-w-[50rem] mt-10 p-6  border border-gray-800 rounded-lg shadow bg-zinc-100 ">
-          <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
-            Requirements
-          </Typography>
-          <Typography>
-            Just some high school mathematics level.
-          </Typography>
 
-          <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
-            Description
-          </Typography>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+        <Grid container spacing={2} direction={{ lg: "row", xs: "column", md: "row" }} >
 
-          <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
-            Who this course is for:
-          </Typography>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
+         
+
+          <Grid item lg={8} xs={6} >
+
+            <div class="max-w-[50rem] max-sm:w-[17.5rem] mt-10 p-6  border border-gray-800 rounded-lg shadow bg-zinc-100 ">
+              <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
+                Requirements
+              </Typography>
+              <Typography>
+                Just some high school mathematics level.
+              </Typography>
+
+              <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
+                Description
+              </Typography>
+              <Typography>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                malesuada lacus ex, sit amet blandit leo lobortis eget.
+              </Typography>
+
+              <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
+                Who this course is for:
+              </Typography>
+              <Typography>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                malesuada lacus ex, sit amet blandit leo lobortis eget.
+              </Typography>
 
 
+            </div>
+
+
+          </Grid>
+
+
+
+          <Grid item xs={6} sm={6} lg={4} alignItems="center">
+
+{/* <div class="  h-[60rem]  w-full max-w-[28rem] flex-col rounded-xl bg-zinc-100 p-8 text-black "> */}
+  <section class="pt-16 bg-blueGray-50 ">
+    <div class="w-full max-sm:w-[17.5rem] px-4 mx-auto">
+      <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
+        <div class="px-6">
+          <div class="flex flex-wrap justify-center">
+            <div class="w-full px-4 flex justify-center">
+              <div class="relative">
+                <Avatar alt="Remy Sharp" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" sx={{ width: 100, height: 100 }} />
+                {/* <img alt=".dw." src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"/> */}
+              </div>
+            </div>
+            <div class="w-full px-4 text-center mt-20">
+              <div class="flex justify-center py-4 lg:pt-4 pt-8">
+                <div class="mr-4 p-3 text-center">
+                  <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                    22
+                  </span>
+                  <span class="text-sm text-blueGray-400">Friends</span>
+                </div>
+                <div class="mr-4 p-3 text-center">
+                  <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                    10
+                  </span>
+                  <span class="text-sm text-blueGray-400">Photos</span>
+                </div>
+                <div class="lg:mr-4 p-3 text-center">
+                  <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                    89
+                  </span>
+                  <span class="text-sm text-blueGray-400">Comments</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-12">
+            <h3 class="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+              Jenna Stones
+            </h3>
+            <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+              <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
+              Los Angeles, California
+            </div>
+            <div class="mb-2 text-blueGray-600 mt-10">
+              <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
+              Solution Manager - Creative Tim Officer
+            </div>
+            <div class="mb-2 text-blueGray-600">
+              <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
+              University of Computer Science
+            </div>
+          </div>
+          <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
+            <div class="flex flex-wrap justify-center">
+              <div class="w-full lg:w-9/12 px-4">
+                <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
+                  An artist of considerable range, Jenna the name taken
+                  by Melbourne-raised, Brooklyn-based Nick Murphy
+                  writes, performs and records all of his own music,
+                  giving it a warm, intimate feel with a solid groove
+                  structure. An artist of considerable range.
+                </p>
+                <a href="javascript:void(0);" class="font-normal text-pink-500">
+                  Show more
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+
+  </section>
+
+{/* </div> */}
+</Grid>
+
+        </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         {/* ratings */}
 
@@ -794,217 +954,220 @@ const CoursePreview = () => {
 
 
 
-      
 
 
 
 
-{/*
+
+        {/*
 reviews of customers
 */}
 
-<section className="bg-gray-100 mt-10">
-  <div className="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
-    <div className="items-end justify-between sm:flex">
-      <div className="max-w-xl">
-        <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-primary">
-          Read trusted reviews from our customers
-        </h2>
+        <section className="bg-gray-100 mt-10">
+          <div className="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="items-end justify-between sm:flex">
+              <div className="max-w-xl">
+                <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-primary">
+                  Read trusted reviews from our customers
+                </h2>
 
-        <p className="mt-8 max-w-lg text-gray-500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-          praesentium natus sapiente commodi. Aliquid sunt tempore iste
-          repellendus explicabo dignissimos placeat, autem harum dolore
-          reprehenderit quis! Quo totam dignissimos earum.
-        </p>
-      </div>
+                <p className="mt-8 max-w-lg text-gray-500">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+                  praesentium natus sapiente commodi. Aliquid sunt tempore iste
+                  repellendus explicabo dignissimos placeat, autem harum dolore
+                  reprehenderit quis! Quo totam dignissimos earum.
+                </p>
+              </div>
 
-      <a
-        href="#"
-        className="mt-8 inline-flex shrink-0 items-center gap-2 rounded-full border border-primary px-5 py-3 font-medium text-primary hover:bg-primary hover:text-white sm:mt-0 lg:mt-8"
-      >
-        Read all reviews
+              <a
+                href="#"
+                className="mt-8 inline-flex shrink-0 items-center gap-2 rounded-full border border-primary px-5 py-3 font-medium text-primary hover:bg-primary hover:text-white sm:mt-0 lg:mt-8"
+              >
+                Read all reviews
 
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4 rtl:rotate-180"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M14 5l7 7m0 0l-7 7m7-7H3"
-          />
-        </svg>
-      </a>
-    </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 rtl:rotate-180"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </a>
+            </div>
 
-    <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <blockquote className="flex h-full flex-col justify-between bg-white p-12">
-        <div>
-          <div className="flex gap-0.5 text-green-500">
-          <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
-          </div>
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <blockquote className="flex h-full flex-col justify-between bg-white p-12">
+                <div>
+                  <div className="flex gap-0.5 text-green-500">
+                    <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
+                  </div>
 
-          <div className="mt-4">
-            {/* <h3 className="text-xl font-bold text-primary sm:text-2xl">
+                  <div className="mt-4">
+                    {/* <h3 className="text-xl font-bold text-primary sm:text-2xl">
               Lorem ipsum dolor sit amet.
             </h3> */}
 
-            <p className="mt-4 text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              cumque recusandae dolorum porro, quasi sunt necessitatibus dolorem
-              ab laudantium vel.
-            </p>
+                    <p className="mt-4 text-gray-600">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                      cumque recusandae dolorum porro, quasi sunt necessitatibus dolorem
+                      ab laudantium vel.
+                    </p>
+                  </div>
+                </div>
+
+                <footer className="mt-8 text-gray-500">Eddie Murphy</footer>
+              </blockquote>
+
+              <blockquote className="flex h-full flex-col justify-between bg-white p-12">
+                <div>
+                  <div className="flex gap-0.5 text-green-500">
+                    <Rating name="half-rating" defaultValue={1.5} precision={0.5} />
+                  </div>
+
+                  <div className="mt-4">
+
+
+                    <p className="mt-4 text-gray-600">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                      cumque recusandae dolorum porro, quasi sunt necessitatibus dolorem
+                      ab laudantium vel.
+                    </p>
+                  </div>
+                </div>
+
+                <footer className="mt-8 text-gray-500">
+                  <CardHeader
+                    avatar={
+                      <Avatar
+                        alt="Eddie Murphy"
+                        src="/static/images/avatar/1.jpg"
+                      />
+                    }
+                    title=" Eddie Murphy"
+                  />
+
+                </footer>
+              </blockquote>
+
+              <blockquote className="flex h-full flex-col justify-between bg-white p-12">
+                <div>
+                  <div className="flex gap-0.5 ">
+                    <Rating name="half-rating" defaultValue={5} precision={0.5} />
+                  </div>
+
+                  <div className="mt-4">
+
+
+                    <p className="mt-4 text-gray-600">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                      cumque recusandae dolorum porro, quasi sunt necessitatibus dolorem
+                      ab laudantium vel.
+                    </p>
+                  </div>
+                </div>
+
+                <footer className="mt-8 text-gray-500">Eddie Murphy</footer>
+              </blockquote>
+
+              <blockquote className="flex h-full flex-col justify-between bg-white p-12">
+                <div>
+                  <div className="flex gap-0.5 text-green-500">
+                    <Rating name="half-rating" defaultValue={4.5} precision={0.5} />
+                  </div>
+
+                  <div className="mt-4">
+
+
+                    <p className="mt-4 text-gray-600">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                      cumque recusandae dolorum porro, quasi sunt necessitatibus dolorem
+                      ab laudantium vel.
+                    </p>
+                  </div>
+                </div>
+
+                <footer className="mt-8 text-gray-500">
+                  <figcaption class="flex items-center mt-6 space-x-3 mb-2">
+                    <Avatar alt="Remy Sharp" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" />
+
+                    <div class="flex items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
+                      <cite class="pr-3 font-medium text-gray-900 dark:text-black">Bonnie Green</cite>
+                      <cite class="pl-3 text-sm text-gray-500 dark:text-gray-400">CTO at Flowbite</cite>
+                    </div>
+                  </figcaption>
+                </footer>
+              </blockquote>
+
+              <blockquote className="flex h-full flex-col justify-between bg-white p-12">
+                <div>
+                  <div className="flex gap-0.5 text-green-500">
+                    <Rating name="half-rating" defaultValue={3.5} precision={0.5} />
+                  </div>
+
+                  <div className="mt-4">
+
+
+                    <p className="mt-4 text-gray-600">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                      cumque recusandae dolorum porro, quasi sunt necessitatibus dolorem
+                      ab laudantium vel.
+                    </p>
+                  </div>
+                </div>
+
+                <footer className="mt-8 text-gray-500">Eddie Murphy</footer>
+              </blockquote>
+
+              <blockquote className="flex h-full flex-col justify-between bg-white p-12">
+                <div>
+                  <div className="flex gap-0.5 text-green-500">
+                    <Rating name="half-rating" defaultValue={4} precision={0.5} />
+                  </div>
+
+                  <div className="mt-4">
+
+
+                    <p className="mt-4 text-gray-600">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                      cumque recusandae dolorum porro, quasi sunt necessitatibus dolorem
+                      ab laudantium vel.
+                    </p>
+                  </div>
+                </div>
+
+                <footer className="mt-8 text-gray-500">
+                  <figcaption class="flex items-center mt-6 space-x-3 mb-2">
+                    <img class="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="profile picture" />
+                    <div class="flex items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
+                      <cite class="pr-3 font-medium text-gray-900 dark:text-black">Bonnie Green</cite>
+                      <cite class="pl-3 text-sm text-gray-500 dark:text-gray-400">CTO at Flowbite</cite>
+                    </div>
+                  </figcaption>
+                </footer>
+              </blockquote>
+            </div>
           </div>
-        </div>
+        </section>
 
-        <footer className="mt-8 text-gray-500">Eddie Murphy</footer>
-      </blockquote>
+        {/* slider */}
 
-      <blockquote className="flex h-full flex-col justify-between bg-white p-12">
-        <div>
-          <div className="flex gap-0.5 text-green-500">
-          <Rating name="half-rating" defaultValue={1.5} precision={0.5} />
-          </div>
-
-          <div className="mt-4">
-       
-
-            <p className="mt-4 text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              cumque recusandae dolorum porro, quasi sunt necessitatibus dolorem
-              ab laudantium vel.
-            </p>
-          </div>
-        </div>
-
-        <footer className="mt-8 text-gray-500">
-        <CardHeader
-  avatar={
-    <Avatar
-      alt="Eddie Murphy"
-      src="/static/images/avatar/1.jpg"
-    />
-  }
-  title=" Eddie Murphy"
-/>
- 
-</footer>
-      </blockquote>
-
-      <blockquote className="flex h-full flex-col justify-between bg-white p-12">
-        <div>
-          <div className="flex gap-0.5 ">
-          <Rating name="half-rating" defaultValue={5} precision={0.5} />
-          </div>
-
-          <div className="mt-4">
-           
-
-            <p className="mt-4 text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              cumque recusandae dolorum porro, quasi sunt necessitatibus dolorem
-              ab laudantium vel.
-            </p>
-          </div>
-        </div>
-
-        <footer className="mt-8 text-gray-500">Eddie Murphy</footer>
-      </blockquote>
-
-      <blockquote className="flex h-full flex-col justify-between bg-white p-12">
-        <div>
-          <div className="flex gap-0.5 text-green-500">
-          <Rating name="half-rating" defaultValue={4.5} precision={0.5} />
-          </div>
-
-          <div className="mt-4">
-        
-
-            <p className="mt-4 text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              cumque recusandae dolorum porro, quasi sunt necessitatibus dolorem
-              ab laudantium vel.
-            </p>
-          </div>
-        </div>
-
-        <footer className="mt-8 text-gray-500">
-             <figcaption class="flex items-center mt-6 space-x-3 mb-2">
-             <Avatar alt="Remy Sharp" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" />
-              
-              <div class="flex items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
-                <cite class="pr-3 font-medium text-gray-900 dark:text-black">Bonnie Green</cite>
-                <cite class="pl-3 text-sm text-gray-500 dark:text-gray-400">CTO at Flowbite</cite>
-              </div>
-            </figcaption>
-        </footer>
-      </blockquote>
-
-      <blockquote className="flex h-full flex-col justify-between bg-white p-12">
-        <div>
-          <div className="flex gap-0.5 text-green-500">
-          <Rating name="half-rating" defaultValue={3.5} precision={0.5} />
-          </div>
-
-          <div className="mt-4">
-            
-
-            <p className="mt-4 text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              cumque recusandae dolorum porro, quasi sunt necessitatibus dolorem
-              ab laudantium vel.
-            </p>
-          </div>
-        </div>
-
-        <footer className="mt-8 text-gray-500">Eddie Murphy</footer>
-      </blockquote>
-
-      <blockquote className="flex h-full flex-col justify-between bg-white p-12">
-        <div>
-          <div className="flex gap-0.5 text-green-500">
-          <Rating name="half-rating" defaultValue={4 } precision={0.5} />
-          </div>
-
-          <div className="mt-4">
-         
-
-            <p className="mt-4 text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              cumque recusandae dolorum porro, quasi sunt necessitatibus dolorem
-              ab laudantium vel.
-            </p>
-          </div>
-        </div>
-
-        <footer className="mt-8 text-gray-500">
-        <figcaption class="flex items-center mt-6 space-x-3 mb-2">
-              <img class="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="profile picture" />
-              <div class="flex items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
-                <cite class="pr-3 font-medium text-gray-900 dark:text-black">Bonnie Green</cite>
-                <cite class="pl-3 text-sm text-gray-500 dark:text-gray-400">CTO at Flowbite</cite>
-              </div>
-            </figcaption>
-        </footer>
-      </blockquote>
-    </div>
-  </div>
-</section>
-
-{/* slider */}
-
-<div className=' font-semibold leading-normal text-start'>
+        <div className=' font-semibold leading-normal text-start'>
           <Typography variant="h1" component="h1" marginTop={5} marginBottom={2} fontSize={30} fontWeight={'bold'} >
             Recent Courses
           </Typography>
 
           <CourseSlider courses={courses} sliderId="slider-3" />
         </div>
+
+
+
 
 
 
