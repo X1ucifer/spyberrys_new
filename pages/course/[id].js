@@ -349,12 +349,12 @@ const CoursePreview = () => {
       <div class="container mx-auto px-5">
 
 
-        <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={2} direction={{ lg: "row-reverse", sm: "column", xs: "column", md: "row-reverse" }} >
+        <Box >
+          <Grid container  direction={{ lg: "row-reverse", sm: "column", xs: "column", md: "row-reverse" }} >
 
             <Grid item xs={6} sm={12} lg={4} md={4} alignItems="center">
               {/* relative bottom-[28rem] */}
-              <div class="md:h-[68rem]  lg:h-[60rem]  w-full lg:w-[28rem] md:w-[47rem] flex-col rounded-xl bg-zinc-100 p-8 text-black md:mb-10 lg:mb-0">
+              <div class="md:h-[68rem]   lg:h-[60rem]  md:max-w-full max-w-[28rem]  flex-col rounded-xl bg-zinc-100 p-8 text-black md:mb-10 lg:mb-0 max-sm:mb-[10rem]">
                 <video class="w-full h-auto max-w-full" controls>
                   <source src="/docs/videos/flowbite.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
@@ -378,7 +378,7 @@ const CoursePreview = () => {
                   <div>
 
                     <a href="#_" class="relative rounded px-5 py-[1.2rem] overflow-hidden group bg-green-500 relative hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
-                      <span class="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                      <span class="absolute right-0 w-8 h-32 mt-12  transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
                       <span class="relative">Buy this Course</span>
                     </a>
 
@@ -481,16 +481,16 @@ const CoursePreview = () => {
               </div>
             </Grid>
 
-            <Grid item xs={8} sm={12} lg={8} md={8}>
+            <Grid item xs={8} sm={12} lg={8} md={8} >
 
               <Typography variant="h4" component="h2" fontWeight={"bold"} fontSize={"25px"}>
                 What you'll learn
               </Typography>
 
-              <div class="lg:w-[50rem] mt-3 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl flex flex-wrap ">
+              <div class="md:max-w-full md:max-w-[40rem] lg:w-[30rem] xl:max-w-[50rem]  mt-3  p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl flex flex-wrap ">
 
 
-                <ul class="mb-8 space-y-4 text-left text-gray-500 dark:text-black lg:columns-2 sm:columns-1 lg:w-[47rem] sm:w-[24rem]  gap-[10rem]">
+                <ul class="mb-8 space-y-4 text-left text-gray-500 dark:text-black lg:columns-2 sm:columns-1 lg:w-[47rem] md:gap-[2rem] sm:w-[24rem]  gap-[10rem]">
                   <li class="flex space-x-3">
 
                     <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
@@ -591,7 +591,7 @@ const CoursePreview = () => {
                   <div >
 
                     <a href="#_" onClick={handleExpandAll}>
-                      <span className='font-semibold font-sans text-primary  border border-primary rounded-sm p-1'> {expanded ? 'Collapse all Sections' : 'Expand all Sections'}</span>
+                      <span className='font-semibold font-sans text-primary  border border-primary rounded-sm p-1'> {expanded ? 'Expand all Sections'  : 'Collapse all Sections'}</span>
                     </a>
 
 
@@ -601,11 +601,13 @@ const CoursePreview = () => {
 
 
 
-                <Accordion expanded={expanded}>
+                <Accordion expanded={!expanded}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
+                    
                     id="panel1a-header"
+                    
                   >
                     <Typography fontSize={15}>Accordion 1</Typography>
                   </AccordionSummary>
@@ -616,7 +618,7 @@ const CoursePreview = () => {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
-                <Accordion expanded={expanded}>
+                <Accordion expanded={!expanded}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
@@ -631,7 +633,7 @@ const CoursePreview = () => {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
-                <Accordion expanded={expanded}>
+                <Accordion expanded={!expanded}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel3a-content"
@@ -646,7 +648,7 @@ const CoursePreview = () => {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
-                <Accordion expanded={expanded}>
+                <Accordion expanded={!expanded}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel2a-content"
@@ -661,7 +663,7 @@ const CoursePreview = () => {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
-                <Accordion expanded={expanded}>
+                <Accordion expanded={!expanded}>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel3a-content"
@@ -701,9 +703,9 @@ const CoursePreview = () => {
 
          
 
-          <Grid item lg={8} xs={6} >
+          <Grid item lg={8} xs={6} md={7} >
 
-            <div class="max-w-[50rem] max-sm:w-[17.5rem] mt-10 p-6  border border-gray-800 rounded-lg shadow bg-zinc-100 ">
+            <div class="md:max-w-[50rem] lg:max-sm:w-full xl:max-w-[50rem] mt-10 p-6  border border-gray-800 rounded-lg shadow bg-zinc-100 ">
               <Typography variant="h3" component="h2" marginTop={3} marginBottom={2} fontSize={25} fontWeight={'bold'} >
                 Requirements
               </Typography>
@@ -735,11 +737,11 @@ const CoursePreview = () => {
 
 
 
-          <Grid item xs={6} sm={6} lg={4} alignItems="center">
+          <Grid item xs={6} sm={6} lg={4} md={3}  alignItems="center">
 
 {/* <div class="  h-[60rem]  w-full max-w-[28rem] flex-col rounded-xl bg-zinc-100 p-8 text-black "> */}
   <section class="pt-16 bg-blueGray-50 ">
-    <div class="w-full max-sm:w-[17.5rem] px-4 mx-auto">
+    <div class="w-full max-sm:w-full  px-4 mx-auto">
       <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
         <div class="px-6">
           <div class="flex flex-wrap justify-center">
@@ -1178,3 +1180,5 @@ reviews of customers
 }
 
 export default CoursePreview
+
+
