@@ -487,7 +487,7 @@ const CoursePreview = () => {
                 What you'll learn
               </Typography>
 
-              <div class="md:max-w-full md:max-w-[40rem] lg:w-[30rem] xl:max-w-[50rem]  mt-3  p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl flex flex-wrap ">
+              <div class="md:max-w-full md:max-w-[40rem] lg:w-[50rem] xl:max-w-[50rem]  mt-3  p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl flex flex-wrap ">
 
 
                 <ul class="mb-8 space-y-4 text-left text-gray-500 dark:text-black lg:columns-2 sm:columns-1 lg:w-[47rem] md:gap-[2rem] sm:w-[24rem]  gap-[10rem]">
