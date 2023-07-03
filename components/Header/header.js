@@ -11,6 +11,9 @@ const Header = () => {
   const router = useRouter();
   const isHome = router.pathname === "/";
 
+  const isSpyclip = router.pathname === "/spyclips";
+
+
   const [isOpen, setIsOpen] = useState(false);
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedin);
@@ -46,7 +49,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        scrollPos > 0 || !isHome
+        scrollPos > 0 || !isHome && !isSpyclip
           ? "text-[#62647D] bg-black shadow-md "
           : "text-white"
       }  ${headerClass} `}
