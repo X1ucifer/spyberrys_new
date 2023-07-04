@@ -125,7 +125,7 @@ const Home = () => {
         <CourseSlider courses={courses} sliderId="slider-2" />
 
     
-{/* <Cart/> */}
+<Cart/>
 
 
 
