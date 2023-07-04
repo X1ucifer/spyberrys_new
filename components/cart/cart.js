@@ -1,7 +1,7 @@
-import { Fragment, useState, react } from "react";
+import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
 const products = [
   {
@@ -13,20 +13,18 @@ const products = [
     quantity: 1,
     imageSrc:
       "https://img.freepik.com/free-vector/hand-drawn-web-developers_23-2148819604.jpg?size=626&ext=jpg",
-    imageAlt:
-      "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
+    imageAlt: "spyberries in full stcak development",
   },
   {
     id: 2,
-    name: "Block Chain Technologies",
+    name: "Block Chain Development",
     href: "#",
     author: "by vinoth",
     price: "$32.00",
     quantity: 1,
     imageSrc:
       "https://www.codemotion.com/magazine/wp-content/uploads/2020/05/f24e09513bbd5490b09a0874b927fb77-896x504.jpg",
-    imageAlt:
-      "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
+    imageAlt: "spyberries in block chain",
   },
   // More products...
 ];
@@ -38,7 +36,10 @@ export default function Cart() {
     <>
       <div>
         {/* <Link href="/cart" legacyBehavior> */}
-        <a className="text-white hover:text-gray-200  pr-[15px] font-semibold text-[14px]"  onClick={() => setOpen(true)}>
+        <a
+          className="text-white hover:text-gray-200  pr-[15px] font-semibold text-[14px]"
+          onClick={() => setOpen(true)}
+        >
           <ShoppingCartOutlinedIcon />
         </a>
         {/* </Link> */}
@@ -82,7 +83,7 @@ export default function Cart() {
                               className="-m-2 p-2 text-gray-400"
                               onClick={() => setOpen(false)}
                             >
-                              <CloseOutlinedIcon/>
+                              <CloseOutlinedIcon />
                               {/* <XMarkIcon className="h-6 w-6" aria-hidden="true" /> */}
                             </button>
                           </div>

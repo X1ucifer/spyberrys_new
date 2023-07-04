@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { Avatar } from "@mui/material";
 import AnimatedAvatar from "../Avatar/avatar";
 import { useRouter } from "next/router";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Cart from "../cart/cart";
 
 const Header = () => {
@@ -90,9 +89,9 @@ const Header = () => {
                 </>
               )}
 
-<div>
-<Cart/>
-</div>     
+              <div>
+                <Cart />
+              </div>
 
               {isLoggedIn ? (
                 <div className="mb-[4px]">
