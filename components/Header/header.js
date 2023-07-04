@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { Avatar } from "@mui/material";
 import AnimatedAvatar from "../Avatar/avatar";
 import { useRouter } from "next/router";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import Cart from "../cart/cart";
 
 const Header = () => {
   const router = useRouter();
@@ -93,11 +93,7 @@ const Header = () => {
               )}
 
               <div>
-                {/* <Link href="/cart" legacyBehavior> */}
-                  <a className="text-white hover:text-gray-200  pr-[15px] font-semibold text-[14px]">
-                    <ShoppingCartOutlinedIcon />
-                  </a>
-                {/* </Link> */}
+                <Cart />
               </div>
 
               {isLoggedIn ? (
