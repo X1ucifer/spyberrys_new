@@ -38,6 +38,7 @@ import Paper from "@mui/material/Paper";
 import CourseSlider from "/components/Slider/courseSlider.js";
 import Rating from "@mui/material/Rating";
 import Avatar from "@mui/material/Avatar";
+import CircleIcon from '@mui/icons-material/Circle';
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -395,7 +396,7 @@ const CoursePreview = () => {
       {/* tabs */}
 
       <div class="container mx-auto px-5">
-        <div class="flex flex-col lg:flex-row-reverse sm:flex-col xs:flex-col md:flex-row-reverse justify-around">
+        <div class="flex flex-col lg:flex-row-reverse sm:flex-col xs:flex-col md:flex-col justify-around lg:gap-[2.5rem]">
           <div class="basis-1/3">
             {/* relative bottom-[28rem] */}
             <div class="md:h-[68rem] lg:max-w-[24rem]  lg:h-[60rem]  md:max-w-full xl:max-w-[28rem]  flex-col rounded-xl bg-zinc-100 p-8 text-black md:mb-10 lg:mb-0 max-sm:mb-[10rem]">
@@ -654,8 +655,8 @@ const CoursePreview = () => {
               What you'll learn
             </Typography>
 
-            <div class="  mt-3  p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl flex flex-wrap ">
-              <ul class="mb-8 space-y-4 text-left text-gray-500 dark:text-black lg:columns-2 sm:columns-1 lg:w-[47rem] md:gap-[2rem] sm:w-[24rem]  gap-[10rem]">
+            <div class="lg:max-w-[39rem] lg:max-w-[full]  mt-3  p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl flex flex-wrap ">
+              <ul class="mb-8 space-y-4 text-left text-gray-500 dark:text-black lg:columns-2 md:columns-2 sm:columns-1 md:w-[41rem] lg:w-[47rem] md:gap-[2rem] sm:w-[24rem]  gap-[10rem]">
                 <li class="flex space-x-3">
                   <svg
                     class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400"
@@ -1021,127 +1022,147 @@ const CoursePreview = () => {
           </div>
         </div>
 
-        <div class="flex lg:flex-row max-sm:flex-col xs:flex-col  justify-around mt-10">
-          
+        <div class="flex lg:flex-row max-sm:flex-col xs:flex-col md:flex-col  justify-around mt-10">
+
 
           <div class="basis-4/12">
-          <div class="md:max-w-full md:max-w-[40rem] lg:w-[40rem] xl:max-w-[50rem]  mt-3  p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl  ">
-            <Typography
-              variant="h3"
-              component="h2"
-              marginTop={3}
-              marginBottom={2}
-              fontSize={25}
-              fontWeight={"bold"}
-            >
-              Requirements
-            </Typography>
-            <Typography>Just some high school mathematics level.</Typography>
+            <div class="md:max-w-full md:max-w-[40rem] lg:w-[40rem] xl:max-w-[50rem]  mt-3  p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl  ">
+              <Typography
+                variant="h3"
+                component="h2"
+                marginTop={3}
+                marginBottom={2}
+                fontSize={25}
+                fontWeight={"bold"}
+              >
+                Requirements
+              </Typography>
+              <Typography>
+                <ul class="mb-8 space-y-4 text-left text-gray-500 dark:text-black ">
+                  <li><CircleIcon fontSize="small"/>No programming experience is required.</li>
+                  <li><CircleIcon fontSize="small"/>Downloading and installing Python is covered at the start of the course.</li>
+                  <li><CircleIcon fontSize="small"/>Basic computer skills: surfing websites, running programs, saving and opening documents, etc.</li>
+                    </ul>
+                  </Typography>
 
-            <Typography
-              variant="h3"
-              component="h2"
-              marginTop={3}
-              marginBottom={2}
-              fontSize={25}
-              fontWeight={"bold"}
-            >
-              Description
-            </Typography>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
+                  <Typography
+                    variant="h3"
+                    component="h2"
+                    marginTop={3}
+                    marginBottom={2}
+                    fontSize={25}
+                    fontWeight={"bold"}
+                  >
+                    Description
+                  </Typography>
+                  <Typography>
+                    If you're an office worker, student, administrator, or just want to become more productive with your computer, programming will allow you write code that can automate tedious tasks. This course follows the popular (and free!) book, Automate the Boring Stuff with Python.
 
-            <Typography
-              variant="h3"
-              component="h2"
-              marginTop={3}
-              marginBottom={2}
-              fontSize={25}
-              fontWeight={"bold"}
-            >
-              Who this course is for:
-            </Typography>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
+                    Automate the Boring Stuff with Python was written for people who want to get up to speed writing small programs that do practical tasks as soon as possible. You don't need to know sorting algorithms or object-oriented programming, so this course skips all the computer science and concentrates on writing code that gets stuff done.
 
-          
-          </div>
+                    This course is for complete beginners and covers the popular Python programming language. You'll learn basic concepts as well as:
 
-          </div>
+                    Web scraping
+                    Parsing PDFs and Excel spreadsheets
+                    Automating the keyboard and mouse
+                    Sending emails and texts
+                    And several other practical topics
+                    By the end of this course, you'll be able to write code that not only dramatically increases your productivity, but also be able to list this fun and creative skill on your resume.
+                  </Typography>
+
+                  <Typography
+                    variant="h3"
+                    component="h2"
+                    marginTop={3}
+                    marginBottom={2}
+                    fontSize={25}
+                    fontWeight={"bold"}
+                  >
+                    Who this course is for:
+                  </Typography>
+                  <Typography>
+                    <ul class="mb-8 space-y-4 text-left text-gray-500 dark:text-black ">
+                      <li><CircleIcon fontSize="small"/>Office workers, students, small/home business workers, and administrators would want to improve their productivity.</li>
+                      <li> Aspiring software engineers who want to add skills to their programming toolbelt.</li>
+                      <li>Computer users who have heard the "learn to code" message, but want practical reasons to learn programming.</li>
+                      <li>Experienced Python software engineers can skip the first half of the course, but may find the later parts that cover various third-party modules helpful.</li>
+                      <li>While this course doesn't cover specific devops tools, this course would be useful for QA, devops, and admins who want to learn scripting in Python.</li>
+                    </ul>
+
+                  </Typography>
 
 
-          <div class="basis-1/3 lg:basis-4">
-            {/* relative bottom-[28rem] */}
-            <div class="md:h-[68rem]   lg:h-[60rem]  max-w-[28rem] lg:max-w-[25rem]  flex-col rounded-xl p-8 text-black md:mb-10 lg:mb-0 max-sm:mb-[10rem]">
-              <section class="pt-16 bg-blueGray-50 ">
-                <div class="w-full max-sm:w-full  px-4 mx-auto">
-                  <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
-                    <div class="px-6">
-                      <div class="flex flex-wrap justify-center">
-                        <div class="w-full px-4 flex justify-center">
-                          <div class="relative">
-                            <Avatar
-                              alt="Remy Sharp"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
-                              sx={{ width: 100, height: 100 }}
-                            />
-                            {/* <img alt=".dw." src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"/> */}
-                          </div>
-                        </div>
-                        <div class="w-full px-4 text-center mt-20">
-                          <div class="flex justify-center py-4 lg:pt-4 pt-8">
-                            <div class="mr-4 p-3 text-center">
-                              <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                                22
-                              </span>
-                              <span class="text-sm text-blueGray-400">
-                                Friends
-                              </span>
-                            </div>
-                            <div class="mr-4 p-3 text-center">
-                              <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                                10
-                              </span>
-                              <span class="text-sm text-blueGray-400">
-                                Photos
-                              </span>
-                            </div>
-                            <div class="lg:mr-4 p-3 text-center">
-                              <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                                89
-                              </span>
-                              <span class="text-sm text-blueGray-400">
-                                Comments
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="text-center mt-12">
-                        <h3 class="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-                          Jenna Stones
-                        </h3>
-                        <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-                          <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
-                          Los Angeles, California
-                        </div>
-                        <div class="mb-2 text-blueGray-600 mt-10">
-                          <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-                          Solution Manager - Creative Tim Officer
-                        </div>
-                        <div class="mb-2 text-blueGray-600">
-                          <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
-                          University of Computer Science
-                        </div>
-                      </div>
-                      <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
+                </div>
+
+            </div>
+
+
+            <div class="basis-1/3">
+              {/* relative bottom-[28rem] */}
+              <div class=" xl:max-w-[28rem] lg:max-w-[24rem]  flex-col rounded-xl p-8 text-black md:mb-10 lg:mb-0 max-sm:mb-[10rem]">
+                <section class="pt-16 bg-blueGray-50 ">
+                  <div class="px-4 mx-auto">
+                    <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
+                      <div class="px-6">
                         <div class="flex flex-wrap justify-center">
+                          <div class="w-full px-4 flex justify-center">
+                            <div class="relative">
+                              <Avatar
+                                alt="Remy Sharp"
+                                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                                sx={{ width: 100, height: 100 }}
+                              />
+                              {/* <img alt=".dw." src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"/> */}
+                            </div>
+                          </div>
+                          <div class="w-full px-4 text-center mt-20">
+                            <div class="flex justify-center py-4 lg:pt-4 pt-8">
+                              <div class="mr-4 p-3 text-center">
+                                <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                                  22
+                                </span>
+                                <span class="text-sm text-blueGray-400">
+                                  Friends
+                                </span>
+                              </div>
+                              <div class="mr-4 p-3 text-center">
+                                <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                                  10
+                                </span>
+                                <span class="text-sm text-blueGray-400">
+                                  Photos
+                                </span>
+                              </div>
+                              <div class="lg:mr-4 p-3 text-center">
+                                <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
+                                  89
+                                </span>
+                                <span class="text-sm text-blueGray-400">
+                                  Comments
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center mt-12">
+                          <h3 class="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+                            Jenna Stones
+                          </h3>
+                          <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+                            <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
+                            Los Angeles, California
+                          </div>
+                          <div class="mb-2 text-blueGray-600 mt-10">
+                            <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
+                            Solution Manager - Creative Tim Officer
+                          </div>
+                          <div class="mb-2 text-blueGray-600">
+                            <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
+                            University of Computer Science
+                          </div>
+                        </div>
+                        <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
+                          {/* <div class="flex flex-wrap justify-center">
                           <div class="w-full lg:w-9/12 px-4">
                             <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
                               An artist of considerable range, Jenna the name
@@ -1158,22 +1179,22 @@ const CoursePreview = () => {
                               Show more
                             </a>
                           </div>
+                        </div> */}
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </section>
+                </section>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* <div class="flex flex-col lg:flex-row xs:flex-col md:flex-row"> */}
-       
+          {/* <div class="flex flex-col lg:flex-row xs:flex-col md:flex-row"> */}
 
-        {/* ratings */}
 
-        {/* <div class=" max-w-full mt-10 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl ">
+          {/* ratings */}
+
+          {/* <div class=" max-w-full mt-10 p-6 bg-white border border-gray-200 rounded-lg shadow bg-zinc-100 drop-shadow-xl ">
 
           <div class="flex items-center mb-3">
 
@@ -1276,249 +1297,249 @@ const CoursePreview = () => {
 
         </div> */}
 
-        {/*
+          {/*
 reviews of customers
 */}
 
-        <section className="bg-gray-100 mt-10">
-          <div className="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
-            <div className="items-end justify-between sm:flex">
-              <div className="max-w-xl">
-                <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-primary">
-                  Read trusted reviews from our customers
-                </h2>
+          <section className="bg-gray-100 mt-10">
+            <div className="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+              <div className="items-end justify-between sm:flex">
+                <div className="max-w-xl">
+                  <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-primary">
+                    Read trusted reviews from our customers
+                  </h2>
 
-                <p className="mt-8 max-w-lg text-gray-500">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Aspernatur praesentium natus sapiente commodi. Aliquid sunt
-                  tempore iste repellendus explicabo dignissimos placeat, autem
-                  harum dolore reprehenderit quis! Quo totam dignissimos earum.
-                </p>
+                  <p className="mt-8 max-w-lg text-gray-500">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Aspernatur praesentium natus sapiente commodi. Aliquid sunt
+                    tempore iste repellendus explicabo dignissimos placeat, autem
+                    harum dolore reprehenderit quis! Quo totam dignissimos earum.
+                  </p>
+                </div>
+
+                <a
+                  href="#"
+                  className="mt-8 inline-flex shrink-0 items-center gap-2 rounded-full border border-primary px-5 py-3 font-medium text-primary hover:bg-primary hover:text-white sm:mt-0 lg:mt-8"
+                >
+                  Read all reviews
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 rtl:rotate-180"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </a>
               </div>
 
-              <a
-                href="#"
-                className="mt-8 inline-flex shrink-0 items-center gap-2 rounded-full border border-primary px-5 py-3 font-medium text-primary hover:bg-primary hover:text-white sm:mt-0 lg:mt-8"
-              >
-                Read all reviews
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 rtl:rotate-180"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </a>
-            </div>
+              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <blockquote className="flex h-full flex-col justify-between bg-white p-12">
+                  <div>
+                    <div className="flex gap-0.5 text-green-500">
+                      <Rating
+                        name="half-rating"
+                        defaultValue={2.5}
+                        precision={0.5}
+                      />
+                    </div>
 
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              <blockquote className="flex h-full flex-col justify-between bg-white p-12">
-                <div>
-                  <div className="flex gap-0.5 text-green-500">
-                    <Rating
-                      name="half-rating"
-                      defaultValue={2.5}
-                      precision={0.5}
-                    />
-                  </div>
-
-                  <div className="mt-4">
-                    {/* <h3 className="text-xl font-bold text-primary sm:text-2xl">
+                    <div className="mt-4">
+                      {/* <h3 className="text-xl font-bold text-primary sm:text-2xl">
               Lorem ipsum dolor sit amet.
             </h3> */}
 
-                    <p className="mt-4 text-gray-600">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Ipsam cumque recusandae dolorum porro, quasi sunt
-                      necessitatibus dolorem ab laudantium vel.
-                    </p>
-                  </div>
-                </div>
-
-                <footer className="mt-8 text-gray-500">Eddie Murphy</footer>
-              </blockquote>
-
-              <blockquote className="flex h-full flex-col justify-between bg-white p-12">
-                <div>
-                  <div className="flex gap-0.5 text-green-500">
-                    <Rating
-                      name="half-rating"
-                      defaultValue={1.5}
-                      precision={0.5}
-                    />
+                      <p className="mt-4 text-gray-600">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Ipsam cumque recusandae dolorum porro, quasi sunt
+                        necessitatibus dolorem ab laudantium vel.
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="mt-4">
-                    <p className="mt-4 text-gray-600">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Ipsam cumque recusandae dolorum porro, quasi sunt
-                      necessitatibus dolorem ab laudantium vel.
-                    </p>
-                  </div>
-                </div>
+                  <footer className="mt-8 text-gray-500">Eddie Murphy</footer>
+                </blockquote>
 
-                <footer className="mt-8 text-gray-500">
-                  <CardHeader
-                    avatar={
-                      <Avatar
-                        alt="Eddie Murphy"
-                        src="/static/images/avatar/1.jpg"
+                <blockquote className="flex h-full flex-col justify-between bg-white p-12">
+                  <div>
+                    <div className="flex gap-0.5 text-green-500">
+                      <Rating
+                        name="half-rating"
+                        defaultValue={1.5}
+                        precision={0.5}
                       />
-                    }
-                    title=" Eddie Murphy"
-                  />
-                </footer>
-              </blockquote>
-
-              <blockquote className="flex h-full flex-col justify-between bg-white p-12">
-                <div>
-                  <div className="flex gap-0.5 ">
-                    <Rating
-                      name="half-rating"
-                      defaultValue={5}
-                      precision={0.5}
-                    />
-                  </div>
-
-                  <div className="mt-4">
-                    <p className="mt-4 text-gray-600">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Ipsam cumque recusandae dolorum porro, quasi sunt
-                      necessitatibus dolorem ab laudantium vel.
-                    </p>
-                  </div>
-                </div>
-
-                <footer className="mt-8 text-gray-500">Eddie Murphy</footer>
-              </blockquote>
-
-              <blockquote className="flex h-full flex-col justify-between bg-white p-12">
-                <div>
-                  <div className="flex gap-0.5 text-green-500">
-                    <Rating
-                      name="half-rating"
-                      defaultValue={4.5}
-                      precision={0.5}
-                    />
-                  </div>
-
-                  <div className="mt-4">
-                    <p className="mt-4 text-gray-600">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Ipsam cumque recusandae dolorum porro, quasi sunt
-                      necessitatibus dolorem ab laudantium vel.
-                    </p>
-                  </div>
-                </div>
-
-                <footer className="mt-8 text-gray-500">
-                  <figcaption class="flex items-center mt-6 space-x-3 mb-2">
-                    <Avatar
-                      alt="Remy Sharp"
-                      src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
-                    />
-
-                    <div class="flex items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
-                      <cite class="pr-3 font-medium text-gray-900 dark:text-black">
-                        Bonnie Green
-                      </cite>
-                      <cite class="pl-3 text-sm text-gray-500 dark:text-gray-400">
-                        CTO at Flowbite
-                      </cite>
                     </div>
-                  </figcaption>
-                </footer>
-              </blockquote>
 
-              <blockquote className="flex h-full flex-col justify-between bg-white p-12">
-                <div>
-                  <div className="flex gap-0.5 text-green-500">
-                    <Rating
-                      name="half-rating"
-                      defaultValue={3.5}
-                      precision={0.5}
-                    />
-                  </div>
-
-                  <div className="mt-4">
-                    <p className="mt-4 text-gray-600">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Ipsam cumque recusandae dolorum porro, quasi sunt
-                      necessitatibus dolorem ab laudantium vel.
-                    </p>
-                  </div>
-                </div>
-
-                <footer className="mt-8 text-gray-500">Eddie Murphy</footer>
-              </blockquote>
-
-              <blockquote className="flex h-full flex-col justify-between bg-white p-12">
-                <div>
-                  <div className="flex gap-0.5 text-green-500">
-                    <Rating
-                      name="half-rating"
-                      defaultValue={4}
-                      precision={0.5}
-                    />
-                  </div>
-
-                  <div className="mt-4">
-                    <p className="mt-4 text-gray-600">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Ipsam cumque recusandae dolorum porro, quasi sunt
-                      necessitatibus dolorem ab laudantium vel.
-                    </p>
-                  </div>
-                </div>
-
-                <footer className="mt-8 text-gray-500">
-                  <figcaption class="flex items-center mt-6 space-x-3 mb-2">
-                    <img
-                      class="w-6 h-6 rounded-full"
-                      src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
-                      alt="profile picture"
-                    />
-                    <div class="flex items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
-                      <cite class="pr-3 font-medium text-gray-900 dark:text-black">
-                        Bonnie Green
-                      </cite>
-                      <cite class="pl-3 text-sm text-gray-500 dark:text-gray-400">
-                        CTO at Flowbite
-                      </cite>
+                    <div className="mt-4">
+                      <p className="mt-4 text-gray-600">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Ipsam cumque recusandae dolorum porro, quasi sunt
+                        necessitatibus dolorem ab laudantium vel.
+                      </p>
                     </div>
-                  </figcaption>
-                </footer>
-              </blockquote>
+                  </div>
+
+                  <footer className="mt-8 text-gray-500">
+                    <CardHeader
+                      avatar={
+                        <Avatar
+                          alt="Eddie Murphy"
+                          src="/static/images/avatar/1.jpg"
+                        />
+                      }
+                      title=" Eddie Murphy"
+                    />
+                  </footer>
+                </blockquote>
+
+                <blockquote className="flex h-full flex-col justify-between bg-white p-12">
+                  <div>
+                    <div className="flex gap-0.5 ">
+                      <Rating
+                        name="half-rating"
+                        defaultValue={5}
+                        precision={0.5}
+                      />
+                    </div>
+
+                    <div className="mt-4">
+                      <p className="mt-4 text-gray-600">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Ipsam cumque recusandae dolorum porro, quasi sunt
+                        necessitatibus dolorem ab laudantium vel.
+                      </p>
+                    </div>
+                  </div>
+
+                  <footer className="mt-8 text-gray-500">Eddie Murphy</footer>
+                </blockquote>
+
+                <blockquote className="flex h-full flex-col justify-between bg-white p-12">
+                  <div>
+                    <div className="flex gap-0.5 text-green-500">
+                      <Rating
+                        name="half-rating"
+                        defaultValue={4.5}
+                        precision={0.5}
+                      />
+                    </div>
+
+                    <div className="mt-4">
+                      <p className="mt-4 text-gray-600">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Ipsam cumque recusandae dolorum porro, quasi sunt
+                        necessitatibus dolorem ab laudantium vel.
+                      </p>
+                    </div>
+                  </div>
+
+                  <footer className="mt-8 text-gray-500">
+                    <figcaption class="flex items-center mt-6 space-x-3 mb-2">
+                      <Avatar
+                        alt="Remy Sharp"
+                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                      />
+
+                      <div class="flex items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
+                        <cite class="pr-3 font-medium text-gray-900 dark:text-black">
+                          Bonnie Green
+                        </cite>
+                        <cite class="pl-3 text-sm text-gray-500 dark:text-gray-400">
+                          CTO at Flowbite
+                        </cite>
+                      </div>
+                    </figcaption>
+                  </footer>
+                </blockquote>
+
+                <blockquote className="flex h-full flex-col justify-between bg-white p-12">
+                  <div>
+                    <div className="flex gap-0.5 text-green-500">
+                      <Rating
+                        name="half-rating"
+                        defaultValue={3.5}
+                        precision={0.5}
+                      />
+                    </div>
+
+                    <div className="mt-4">
+                      <p className="mt-4 text-gray-600">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Ipsam cumque recusandae dolorum porro, quasi sunt
+                        necessitatibus dolorem ab laudantium vel.
+                      </p>
+                    </div>
+                  </div>
+
+                  <footer className="mt-8 text-gray-500">Eddie Murphy</footer>
+                </blockquote>
+
+                <blockquote className="flex h-full flex-col justify-between bg-white p-12">
+                  <div>
+                    <div className="flex gap-0.5 text-green-500">
+                      <Rating
+                        name="half-rating"
+                        defaultValue={4}
+                        precision={0.5}
+                      />
+                    </div>
+
+                    <div className="mt-4">
+                      <p className="mt-4 text-gray-600">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Ipsam cumque recusandae dolorum porro, quasi sunt
+                        necessitatibus dolorem ab laudantium vel.
+                      </p>
+                    </div>
+                  </div>
+
+                  <footer className="mt-8 text-gray-500">
+                    <figcaption class="flex items-center mt-6 space-x-3 mb-2">
+                      <img
+                        class="w-6 h-6 rounded-full"
+                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                        alt="profile picture"
+                      />
+                      <div class="flex items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
+                        <cite class="pr-3 font-medium text-gray-900 dark:text-black">
+                          Bonnie Green
+                        </cite>
+                        <cite class="pl-3 text-sm text-gray-500 dark:text-gray-400">
+                          CTO at Flowbite
+                        </cite>
+                      </div>
+                    </figcaption>
+                  </footer>
+                </blockquote>
+              </div>
             </div>
+          </section>
+
+          {/* slider */}
+
+          <div className=" font-semibold leading-normal text-start">
+            <Typography
+              variant="h1"
+              component="h1"
+              marginTop={5}
+              marginBottom={2}
+              fontSize={30}
+              fontWeight={"bold"}
+            >
+              Recent Courses
+            </Typography>
+
+            <CourseSlider courses={courses} sliderId="slider-3" />
           </div>
-        </section>
-
-        {/* slider */}
-
-        <div className=" font-semibold leading-normal text-start">
-          <Typography
-            variant="h1"
-            component="h1"
-            marginTop={5}
-            marginBottom={2}
-            fontSize={30}
-            fontWeight={"bold"}
-          >
-            Recent Courses
-          </Typography>
-
-          <CourseSlider courses={courses} sliderId="slider-3" />
         </div>
-      </div>
-    </>
-  );
+      </>
+      );
 };
 
-export default CoursePreview;
+      export default CoursePreview;
