@@ -30,7 +30,12 @@ const products = [
 ];
 
 export default function Cart() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+
+  const handleCartClick = () => {
+    setOpen(!open);
+  };
+
 
   return (
     <>
@@ -38,7 +43,7 @@ export default function Cart() {
         {/* <Link href="/cart" legacyBehavior> */}
         <a
           className="text-white hover:text-gray-200  pr-[15px] font-semibold text-[14px]"
-          onClick={() => setOpen(true)}
+          onClick={handleCartClick}
         >
           <ShoppingCartOutlinedIcon />
         </a>
